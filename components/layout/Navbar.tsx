@@ -153,7 +153,8 @@ export function Navbar() {
               alt="ThermaNest — Modular Prefab Solutions"
               width={130}
               height={64}
-              className="object-contain h-14 w-auto"
+              className="object-contain h-14"
+              style={{ width: "auto" }}
               priority
             />
           </Link>
@@ -228,7 +229,8 @@ export function Navbar() {
                     alt="ThermaNest"
                     width={110}
                     height={54}
-                    className="object-contain h-12 w-auto"
+                    className="object-contain h-12"
+              style={{ width: "auto" }}
                   />
                 </Link>
                 <button

@@ -28,7 +28,8 @@ export function Footer() {
               alt="ThermaNest"
               width={180}
               height={72}
-              className="object-contain h-[72px] w-auto brightness-0 invert"
+              className="object-contain h-[72px] brightness-0 invert"
+              style={{ width: "auto" }}
             />
           </Link>
           <p
