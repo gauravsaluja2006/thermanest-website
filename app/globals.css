@@ -28,6 +28,7 @@
   --text-body-3: 1rem;      /* 16px — standard body / nav links */
   --text-body-4: 0.875rem;  /* 14px — small labels / eyebrow */
   --text-body-5: 0.75rem;   /* 12px — info bar / captions */
+  --text-cta-label: 0.8125rem; /* 13px — phone CTA sub-label */
 
   /* Line heights */
   --leading-hero:   5rem;    /* 80px */
