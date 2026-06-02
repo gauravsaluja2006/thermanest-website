@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { DetailsBar } from "@/components/sections/DetailsBar";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { ComparisonTable } from "@/components/sections/ComparisonTable";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <DetailsBar />
       <ServicesGrid />
+      <ComparisonTable />
     </main>
   );
 }
