@@ -26,7 +26,7 @@
 
   /* Type scale — matched exactly to Figma named styles */
   --text-hero:   3.625rem;  /* 58px — DM Serif Text, hero H1 */
-  --text-h2:     2.25rem;   /* 36px — section headings */
+  --text-h2:     3.25rem;   /* 52px — DM Serif section headings (Figma H2) */
   --text-h3:     1.5rem;    /* 24px — card headings */
   --text-body-1: 1.25rem;   /* 20px — large body */
   --text-body-2: 1.125rem;  /* 18px — medium body / phone number */
