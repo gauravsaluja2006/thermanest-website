@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
+
+@theme {
+  /* Colors */
+  --color-primary:           #779d28; /* olive green — CTAs, accent, ThermaNest column */
+  --color-primary-dark:      #5e7d1e; /* hover state */
+  --color-secondary:         #01182f; /* dark navy — info bar bg, dark sections */
+  --color-secondary-light:   #152232; /* footer bg, alt dark */
+  --color-white:             #ffffff;
+  --color-text-primary:      #01182f;
+  --color-text-secondary:    rgba(21, 34, 50, 0.85);
+  --color-text-muted:        rgba(21, 34, 50, 0.55);
+  --color-border:            #e5e7eb;
+  --color-surface:           #f8f8f8;
+
+  /* Fonts — populated by next/font variables set in layout.tsx */
+  --font-sans:   var(--font-inter);
+  --font-serif:  var(--font-dm-serif);
+
+  /* Type scale — matched exactly to Figma named styles */
+  --text-hero:   3.625rem;  /* 58px — DM Serif Text, hero H1 */
+  --text-h2:     2.25rem;   /* 36px — section headings */
+  --text-h3:     1.5rem;    /* 24px — card headings */
+  --text-body-1: 1.25rem;   /* 20px — large body */
+  --text-body-2: 1.125rem;  /* 18px — medium body / phone number */
+  --text-body-3: 1rem;      /* 16px — standard body / nav links */
+  --text-body-4: 0.875rem;  /* 14px — small labels / eyebrow */
+  --text-body-5: 0.75rem;   /* 12px — info bar / captions */
+
+  /* Line heights */
+  --leading-hero:   5rem;    /* 80px */
+  --leading-body-1: 2.125rem; /* 34px */
+  --leading-body-3: 1.625rem; /* 26px */
+
+  /* Spacing — section padding */
+  --spacing-section-y:        7.5rem;  /* 120px desktop */
+  --spacing-section-y-mobile: 4rem;    /* 64px mobile */
+
+  /* Layout */
+  --width-content: 75rem;   /* 1200px inner content max-width */
+  --width-max:     90rem;   /* 1440px outer max-width */
+
+  /* Border radius */
+  --radius-sm:  0.375rem;  /* 6px */
+  --radius-md:  0.625rem;  /* 10px */
+  --radius-lg:  1rem;      /* 16px */
+  --radius-full: 9999px;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  color: var(--color-text-primary);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Utilities ──────────────────────────────────────────────────────────── */
+
+/* Fluid section padding — mobile-first */
+.section-padding {
+  padding-top: var(--spacing-section-y-mobile);
+  padding-bottom: var(--spacing-section-y-mobile);
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: var(--spacing-section-y);
+    padding-bottom: var(--spacing-section-y);
+  }
+}
+
+/* Centered content wrapper */
+.content-wrapper {
+  width: 100%;
+  max-width: var(--width-content);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .content-wrapper {
+    padding-inline: 0;
+  }
+}
+
+/* Reduced motion — all animations respect this */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
