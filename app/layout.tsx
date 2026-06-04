@@ -4,6 +4,7 @@ import "./globals.css";
 import { InfoBar } from "@/components/layout/InfoBar";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MobileCtaBar } from "@/components/ui/MobileCtaBar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,11 +36,12 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${dmSerifText.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col pb-[114px] md:pb-0">
         <InfoBar />
         <Navbar />
         {children}
         <Footer />
+        <MobileCtaBar />
       </body>
     </html>
   );
