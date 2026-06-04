@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const NAV_LINKS = [
@@ -16,9 +16,7 @@ const NAV_LINKS = [
 
 const PHONE = "+9215666885";
 
-function PhoneCTA({ compact = false }: { compact?: boolean }) {
-  const circleSize = compact ? 40 : 44;
-  const iconSize = compact ? 16 : 18;
+function PhoneCTA() {
   return (
     <a
       href="tel:+9215666885"
@@ -27,21 +25,15 @@ function PhoneCTA({ compact = false }: { compact?: boolean }) {
     >
       <span
         className="flex items-center justify-center shrink-0 rounded-full transition-transform duration-150 group-hover:scale-105"
-        style={{ width: circleSize, height: circleSize, backgroundColor: "var(--color-primary)" }}
+        style={{ width: 44, height: 44, backgroundColor: "var(--color-primary)" }}
       >
-        <Phone size={iconSize} color="white" strokeWidth={2} aria-hidden="true" />
+        <Phone size={18} color="white" strokeWidth={2} aria-hidden="true" />
       </span>
       <span className="flex flex-col gap-1">
-        <span
-          className="font-semibold leading-none"
-          style={{ fontSize: "var(--text-body-2)", color: "var(--color-text-primary)" }}
-        >
+        <span className="font-semibold leading-none" style={{ fontSize: "var(--text-body-2)", color: "var(--color-text-primary)" }}>
           {PHONE}
         </span>
-        <span
-          className="font-medium leading-none"
-          style={{ fontSize: "var(--text-cta-label)", color: "var(--color-primary)" }}
-        >
+        <span className="font-medium leading-none" style={{ fontSize: "var(--text-cta-label)", color: "var(--color-primary)" }}>
           Call for Consultation
         </span>
       </span>
@@ -52,11 +44,8 @@ function PhoneCTA({ compact = false }: { compact?: boolean }) {
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
-  /* tracks whether drawer has ever been opened — prevents focus steal on mount */
-  const hasOpenedRef = useRef(false);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
@@ -68,64 +57,27 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* body scroll lock + focus management */
+  /* body scroll lock */
   useEffect(() => {
-    if (drawerOpen) {
-      hasOpenedRef.current = true;
-      document.body.style.overflow = "hidden";
-      closeButtonRef.current?.focus();
-    } else {
-      document.body.style.overflow = "";
-      if (hasOpenedRef.current) {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  /* Escape key closes menu */
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
         hamburgerRef.current?.focus();
       }
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [drawerOpen]);
-
-  /* Escape key + focus trap */
-  useEffect(() => {
-    if (!drawerOpen) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setDrawerOpen(false);
-        return;
-      }
-      if (e.key !== "Tab") return;
-
-      const drawer = document.getElementById("mobile-drawer");
-      if (!drawer) return;
-
-      const focusable = Array.from(
-        drawer.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        )
-      );
-      if (focusable.length === 0) return;
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      if (e.shiftKey) {
-        if (document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        }
-      } else {
-        if (document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
     };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [menuOpen]);
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [drawerOpen]);
-
-  /* close drawer on route change */
-  useEffect(() => { setDrawerOpen(false); }, [pathname]); // eslint-disable-line
+  /* close on route change */
+  useEffect(() => { setMenuOpen(false); }, [pathname]); // eslint-disable-line
 
   const linkStyle = (href: string) => ({
     fontSize: "var(--text-body-3)",
@@ -135,19 +87,32 @@ export function Navbar() {
 
   return (
     <>
+      {/* Invisible backdrop — closes menu on outside click */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="backdrop"
+            className="fixed inset-0 z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
+            onClick={() => setMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
       <header
         className={[
-          "sticky top-0 z-50 bg-white transition-all duration-200",
+          "sticky top-0 z-50 bg-white transition-all duration-200 relative",
           scrolled ? "shadow-md border-b border-border" : "",
         ].join(" ")}
       >
         <div className="flex items-center justify-between py-4 px-4 md:px-[61px]">
 
           {/* Logo */}
-          <Link
-            href="/"
-            className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
-          >
+          <Link href="/" className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
             <Image
               src="/images/logo.png"
               alt="ThermaNest — Modular Prefab Solutions"
@@ -178,93 +143,96 @@ export function Navbar() {
             <PhoneCTA />
           </div>
 
-          {/* Mobile hamburger */}
+          {/* Mobile hamburger — toggles menu */}
           <button
             ref={hamburgerRef}
             className="md:hidden flex items-center justify-center p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            onClick={() => setDrawerOpen(true)}
-            aria-label="Open menu"
-            aria-expanded={drawerOpen}
-            aria-controls="mobile-drawer"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             <Menu size={24} style={{ color: "var(--color-text-primary)" }} aria-hidden="true" />
           </button>
         </div>
-      </header>
 
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {drawerOpen && (
-          <>
-            {/* Overlay */}
+        {/* ── Mobile dropdown — expands down from navbar ── */}
+        <AnimatePresence>
+          {menuOpen && (
             <motion.div
-              key="overlay"
-              className="fixed inset-0 z-50 bg-black/50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setDrawerOpen(false)}
-              aria-hidden="true"
-            />
-
-            {/* Drawer */}
-            <motion.div
-              key="drawer"
-              id="mobile-drawer"
+              key="menu"
+              id="mobile-menu"
               role="dialog"
               aria-modal="true"
               aria-label="Navigation menu"
-              className="fixed top-0 right-0 z-50 h-full w-[280px] bg-white flex flex-col py-8 px-6 shadow-2xl"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 320, damping: 32 }}
+              className="absolute top-full left-0 right-0 md:hidden flex flex-col overflow-hidden"
+              style={{ boxShadow: "0px 4px 16px rgba(0,0,0,0.08)" }}
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
-              {/* Drawer header */}
-              <div className="flex items-center justify-between mb-8">
-                <Link href="/" onClick={() => setDrawerOpen(false)}>
-                  <Image
-                    src="/images/logo.png"
-                    alt="ThermaNest"
-                    width={110}
-                    height={54}
-                    className="object-contain h-12"
-              style={{ width: "auto" }}
-                  />
-                </Link>
-                <button
-                  ref={closeButtonRef}
-                  onClick={() => setDrawerOpen(false)}
-                  className="p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                  aria-label="Close menu"
-                >
-                  <X size={22} style={{ color: "var(--color-text-primary)" }} aria-hidden="true" />
-                </button>
-              </div>
-
-              {/* Drawer nav links */}
-              <nav aria-label="Mobile navigation" className="flex flex-col gap-6 flex-1">
+              {/* Nav links */}
+              <nav aria-label="Mobile navigation" className="flex flex-col bg-white px-4 py-3">
                 {NAV_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
-                    style={linkStyle(link.href)}
+                    onClick={() => setMenuOpen(false)}
+                    className="rounded-[10px] px-[18px] py-[12px] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    style={
+                      isActive(link.href)
+                        ? { backgroundColor: "rgba(238,249,215,0.85)", color: "var(--color-primary)", fontWeight: 600, fontSize: "var(--text-body-3)" }
+                        : { color: "rgba(1,24,47,0.85)", fontWeight: 400, fontSize: "var(--text-body-3)" }
+                    }
                   >
                     {link.label}
                   </Link>
                 ))}
               </nav>
 
-              {/* Drawer phone CTA */}
-              <div className="pt-8 border-t" style={{ borderColor: "var(--color-border)" }}>
-                <PhoneCTA compact />
+              {/* Bottom CTA section */}
+              <div
+                className="flex flex-col gap-4 px-6 py-8"
+                style={{ backgroundColor: "var(--color-secondary)" }}
+              >
+                <h2
+                  className="text-white"
+                  style={{
+                    fontFamily: "var(--font-serif)",
+                    fontSize: "clamp(1.5rem, 7vw, 1.75rem)",
+                    fontWeight: 400,
+                    lineHeight: 1.15,
+                  }}
+                >
+                  Ready To Build Your Dream Space?
+                </h2>
+                <p
+                  className="text-white/80 font-normal"
+                  style={{ fontSize: "var(--text-body-4)", lineHeight: "1.5" }}
+                >
+                  Whether you&apos;re planning a home, office, resort or custom modular build,
+                  our team is here to help you design, customize and deliver a space that
+                  truly reflects your vision
+                </p>
+                <a
+                  href="tel:+9215666885"
+                  className="flex w-full items-center justify-center gap-[10px] font-semibold text-white rounded-[10px] transition-opacity duration-150 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-secondary"
+                  style={{
+                    backgroundColor: "var(--color-primary)",
+                    height: "52px",
+                    fontSize: "var(--text-body-3)",
+                  }}
+                  aria-label="Call ThermaNest at +9215666885"
+                >
+                  <Phone size={16} strokeWidth={2} aria-hidden="true" />
+                  Call Us Today&nbsp;|&nbsp;+9215666885
+                </a>
               </div>
             </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      </header>
     </>
   );
 }
