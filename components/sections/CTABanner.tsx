@@ -20,7 +20,7 @@ export function CTABanner() {
         Ready To Build Your Dream Space?
       </h2>
       <p
-        className="font-normal text-white/80"
+        className="font-normal text-white"
         style={{
           fontSize: "var(--text-body-2)",
           lineHeight: "1.75rem",

@@ -14,8 +14,9 @@
   --color-text-muted:        rgba(21, 34, 50, 0.55);
   --color-border:            #e5e7eb;
   --color-surface:           #f8f8f8;
-  --color-hero-overlay:      rgba(2, 21, 40, 0.45);   /* hero bg overlay — dark enough for text contrast */
-  --color-eyebrow-bg:        rgba(248, 248, 248, 0.1); /* frosted glass badge bg */
+  --color-primary-light:     #eef9d7;                  /* testimonials, comparison table ThermaNest col */
+  --color-hero-overlay:      rgba(2, 21, 40, 0.18);   /* hero bg overlay — matches Figma exactly */
+  --color-eyebrow-bg:        rgba(248, 248, 248, 0.06); /* frosted glass badge bg */
 
   /* Component sizing */
   --height-btn-lg:           3.75rem;   /* 60px — large CTA button */

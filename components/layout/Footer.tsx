@@ -33,7 +33,7 @@ export function Footer() {
             />
           </Link>
           <p
-            className="font-normal text-white/70"
+            className="font-normal text-white"
             style={{
               fontSize: "var(--text-body-3)",
               lineHeight: "var(--leading-body-3)",
@@ -60,7 +60,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/70 hover:text-white transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
+                    className="text-white hover:text-white/80 transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
                     style={{ fontSize: "var(--text-body-3)" }}
                   >
                     {link.label}
@@ -82,7 +82,7 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+9215666885"
-                  className="flex items-center gap-[10px] text-white/70 hover:text-white transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
+                  className="flex items-center gap-[10px] text-white hover:text-white/80 transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
                   style={{ fontSize: "var(--text-body-3)" }}
                 >
                   <Phone size={18} strokeWidth={1.75} aria-hidden="true" className="shrink-0" />
@@ -109,7 +109,7 @@ export function Footer() {
         style={{ borderTop: "0.8px solid rgba(255,255,255,0.1)" }}
       >
         <p
-          className="text-white/60 font-normal"
+          className="text-white font-normal"
           style={{ fontSize: "var(--text-body-4)" }}
         >
           © 2026 THERMANEST. PREFAB All rights reserved.
@@ -117,14 +117,14 @@ export function Footer() {
         <div className="flex gap-6">
           <Link
             href="/privacy"
-            className="text-white/60 hover:text-white transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
+            className="text-white hover:text-white/80 transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
             style={{ fontSize: "var(--text-body-4)" }}
           >
             Privacy Policy
           </Link>
           <Link
             href="/terms"
-            className="text-white/60 hover:text-white transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
+            className="text-white hover:text-white/80 transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
             style={{ fontSize: "var(--text-body-4)" }}
           >
             Terms of Service

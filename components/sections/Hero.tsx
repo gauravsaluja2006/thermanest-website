@@ -39,7 +39,7 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col gap-[30px] pt-[125px] pb-[80px] px-4 md:px-[61px]">
+      <div className="relative z-10 flex flex-col gap-[30px] pt-[125px] pb-[80px] px-4 md:px-[50px]">
 
         {/* Eyebrow badge */}
         <motion.div

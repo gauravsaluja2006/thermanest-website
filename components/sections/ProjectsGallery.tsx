@@ -50,34 +50,33 @@ export function ProjectsGallery() {
           </Link>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Cards grid — 3 cols to match Figma's ~3-card visible viewport */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
             <motion.article
               key={project.slug}
               initial={reduced ? false : { opacity: 0, y: 30 }}
               whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: (index % 3) * 0.1, ease: "easeOut" }}
               className="group flex flex-col rounded-[10px] overflow-hidden transition-all duration-250 hover:-translate-y-1 hover:shadow-lg"
-              style={{ border: "1px solid var(--color-border)" }}
             >
               {/* Image */}
-              <div className="relative h-[220px] overflow-hidden shrink-0">
+              <div className="relative h-[308px] overflow-hidden rounded-t-[10px] shrink-0">
                 <Image
                   src={project.image}
                   alt={project.name}
                   fill
                   className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                {/* View Gallery badge */}
+                {/* View Gallery badge — green per Figma */}
                 <div
-                  className="absolute bottom-3 left-4 flex items-center gap-[6px] rounded-[7px] px-[8px] py-[5px]"
-                  style={{ backgroundColor: "rgba(1,24,47,0.75)" }}
+                  className="absolute bottom-[14px] left-6 flex items-center gap-[6px] rounded-[7px] px-[8px] py-[7px] h-[34px]"
+                  style={{ backgroundColor: "var(--color-primary)" }}
                 >
-                  <GalleryHorizontal size={12} color="white" strokeWidth={2} aria-hidden="true" />
-                  <span className="text-white font-medium" style={{ fontSize: "11px" }}>
+                  <GalleryHorizontal size={14} color="white" strokeWidth={2} aria-hidden="true" />
+                  <span className="text-white font-medium" style={{ fontSize: "var(--text-body-4)" }}>
                     View Gallery
                   </span>
                 </div>
@@ -85,35 +84,35 @@ export function ProjectsGallery() {
 
               {/* Content */}
               <div
-                className="flex flex-col flex-1 p-5 gap-3"
-                style={{ backgroundColor: "var(--color-surface)" }}
+                className="flex flex-col flex-1 px-[30px] py-[40px] gap-5 rounded-b-[10px]"
+                style={{ backgroundColor: "var(--color-white)" }}
               >
-                {/* Type tag */}
-                <span
-                  className="font-semibold tracking-wider uppercase"
-                  style={{
-                    fontSize: "10px",
-                    color: "var(--color-primary)",
-                  }}
-                >
-                  {project.type}
-                </span>
-
-                {/* Project name */}
-                <h3
-                  className="font-semibold leading-snug"
-                  style={{
-                    fontSize: "var(--text-h3)",
-                    color: "var(--color-text-primary)",
-                  }}
-                >
-                  {project.name}
-                </h3>
+                {/* Type tag + name */}
+                <div className="flex flex-col gap-3">
+                  <span
+                    className="font-medium uppercase"
+                    style={{
+                      fontSize: "var(--text-body-4)",
+                      color: "var(--color-primary)",
+                    }}
+                  >
+                    {project.type}
+                  </span>
+                  <h3
+                    className="font-semibold leading-snug"
+                    style={{
+                      fontSize: "var(--text-h3)",
+                      color: "var(--color-text-secondary)",
+                    }}
+                  >
+                    {project.name}
+                  </h3>
+                </div>
 
                 {/* Location */}
-                <div className="flex items-center gap-[6px]">
+                <div className="flex items-center gap-2">
                   <MapPin
-                    size={14}
+                    size={16}
                     strokeWidth={2}
                     aria-hidden="true"
                     style={{ color: "var(--color-text-secondary)", flexShrink: 0 }}
@@ -121,7 +120,7 @@ export function ProjectsGallery() {
                   <span
                     className="font-normal"
                     style={{
-                      fontSize: "var(--text-body-4)",
+                      fontSize: "var(--text-body-3)",
                       color: "var(--color-text-secondary)",
                     }}
                   >
@@ -130,9 +129,9 @@ export function ProjectsGallery() {
                 </div>
 
                 {/* Feature */}
-                <div className="flex items-center gap-[6px]">
+                <div className="flex items-center gap-2">
                   <Star
-                    size={14}
+                    size={16}
                     strokeWidth={2}
                     aria-hidden="true"
                     style={{ color: "var(--color-text-secondary)", flexShrink: 0 }}
@@ -140,7 +139,7 @@ export function ProjectsGallery() {
                   <span
                     className="font-normal"
                     style={{
-                      fontSize: "var(--text-body-4)",
+                      fontSize: "var(--text-body-3)",
                       color: "var(--color-text-secondary)",
                     }}
                   >
@@ -150,7 +149,7 @@ export function ProjectsGallery() {
 
                 {/* Stats row */}
                 <div
-                  className="grid grid-cols-3 gap-2 pt-3 mt-auto"
+                  className="grid grid-cols-3 gap-2 pt-5 mt-auto"
                   style={{ borderTop: "1px solid var(--color-border)" }}
                 >
                   {[
@@ -158,14 +157,12 @@ export function ProjectsGallery() {
                     { label: "Configuration", value: project.configuration },
                     { label: "Timeline", value: project.timeline },
                   ].map(({ label, value }) => (
-                    <div key={label} className="flex flex-col gap-[3px]">
+                    <div key={label} className="flex flex-col gap-1">
                       <span
                         className="font-normal"
                         style={{
-                          fontSize: "10px",
-                          color: "var(--color-text-muted)",
-                          textTransform: "uppercase",
-                          letterSpacing: "0.04em",
+                          fontSize: "var(--text-body-5)",
+                          color: "var(--color-text-secondary)",
                         }}
                       >
                         {label}
