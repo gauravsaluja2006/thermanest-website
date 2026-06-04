@@ -5,12 +5,13 @@ import { Layers, Truck, MapPin } from "lucide-react";
 interface InfoItem {
   icon: LucideIcon;
   label: string;
+  labelFull?: string;
 }
 
 const items: InfoItem[] = [
   { icon: Layers, label: "Custom Modular Solutions" },
   { icon: Truck, label: "20–40 Day Delivery" },
-  { icon: MapPin, label: "North India Delivery (Delhi, Punjab, Haryana, Himachal)" },
+  { icon: MapPin, label: "North India Delivery", labelFull: "North India Delivery (Delhi, Punjab, Haryana, Himachal)" },
 ];
 
 export function InfoBar() {
@@ -38,6 +39,9 @@ export function InfoBar() {
                 style={{ fontSize: "var(--text-body-5)" }}
               >
                 {item.label}
+                {item.labelFull && (
+                  <span className="hidden md:inline"> (Delhi, Punjab, Haryana, Himachal)</span>
+                )}
               </span>
             </div>
           </Fragment>

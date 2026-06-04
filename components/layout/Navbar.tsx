@@ -125,7 +125,7 @@ export function Navbar() {
   }, [drawerOpen]);
 
   /* close drawer on route change */
-  useEffect(() => { setDrawerOpen(false); }, [pathname]);
+  useEffect(() => { setDrawerOpen(false); }, [pathname]); // eslint-disable-line
 
   const linkStyle = (href: string) => ({
     fontSize: "var(--text-body-3)",

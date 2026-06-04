@@ -31,17 +31,15 @@ export function CTABanner() {
         team is here to help you design, customize and deliver a space that truly
         reflects your vision
       </p>
-      <div className="mt-[25px]">
+      <div className="mt-[25px] w-full sm:w-auto px-4 sm:px-0">
         <a
           href="tel:+9215666885"
-          className="inline-flex items-center gap-[10px] font-semibold text-white transition-all duration-150 hover:scale-[1.03] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-secondary"
+          className="flex w-full sm:inline-flex sm:w-auto items-center justify-center gap-[10px] font-semibold text-white transition-all duration-150 hover:scale-[1.03] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-secondary"
           style={{
             backgroundColor: "var(--color-primary)",
             height: "var(--height-btn-lg)",
             borderRadius: "var(--radius-md)",
             padding: "0 20px",
-            minWidth: "343px",
-            justifyContent: "center",
           }}
           aria-label="Call us today at +9215666885"
         >

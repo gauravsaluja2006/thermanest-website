@@ -36,10 +36,10 @@ export function DetailsBar() {
     <section aria-label="Key features" className="bg-surface">
       <div
         className="
-          flex flex-wrap items-center justify-center
-          gap-x-[50px] gap-y-6
-          px-4 py-[22px]
-          md:gap-x-0 md:px-[88px] md:py-[29px]
+          flex flex-wrap items-center
+          gap-[29px]
+          px-5 py-[29px]
+          md:justify-center md:gap-x-0 md:px-[88px]
         "
       >
         {items.map((item, index) => {

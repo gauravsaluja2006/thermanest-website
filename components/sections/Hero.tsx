@@ -64,8 +64,8 @@ export function Hero() {
           className="text-white"
           style={{
             fontFamily: "var(--font-serif)",
-            fontSize: "clamp(2rem, 5vw, var(--text-hero))",
-            lineHeight: "clamp(2.6rem, 6vw, var(--leading-hero))",
+            fontSize: "clamp(2.625rem, 10vw, var(--text-hero))",
+            lineHeight: "clamp(3rem, 12vw, var(--leading-hero))",
             maxWidth: "760px",
             fontWeight: 400,
           }}
