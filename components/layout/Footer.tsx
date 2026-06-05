@@ -91,7 +91,7 @@ export function Footer() {
               </li>
               <li>
                 <div
-                  className="flex items-center gap-[10px] text-white/70 font-normal"
+                  className="flex items-center gap-[10px] text-white font-normal"
                   style={{ fontSize: "var(--text-body-3)" }}
                 >
                   <MapPin size={18} strokeWidth={1.75} aria-hidden="true" className="shrink-0" />
