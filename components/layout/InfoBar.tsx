@@ -16,7 +16,7 @@ const items: InfoItem[] = [
 
 export function InfoBar() {
   return (
-    <div className="bg-secondary flex items-center justify-center flex-wrap gap-x-6 gap-y-2 px-4 py-[14px] md:gap-x-0 md:px-[61px] md:py-5">
+    <div className="bg-secondary flex items-center justify-center flex-wrap gap-x-6 gap-y-2 px-4 py-[10px] md:gap-x-0 md:px-[61px] md:py-3">
       {items.map((item, index) => {
         const Icon = item.icon;
         return (
