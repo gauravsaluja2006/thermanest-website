@@ -29,7 +29,7 @@ export function Excellence() {
   return (
     <section aria-labelledby="excellence-heading" className="section-padding bg-white">
       <div
-        className="mx-auto px-4 md:px-[50px] flex flex-col lg:flex-row items-center justify-between gap-12"
+        className="mx-auto px-4 md:px-[50px] flex flex-col lg:flex-row items-center gap-12 lg:gap-20"
         style={{ maxWidth: "1340px" }}
       >
         {/* Left — content */}
