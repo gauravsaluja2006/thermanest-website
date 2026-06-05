@@ -109,11 +109,11 @@ export function ServicesGrid() {
 
                 {/* Content */}
                 <div
-                  className="flex flex-col flex-1 pt-[21px] px-[28px] pb-[24px] rounded-b-[10px]"
+                  className="flex flex-col flex-1 gap-5 pt-[21px] px-[28px] pb-[24px] rounded-b-[10px]"
                   style={{ backgroundColor: "rgba(248,248,248,0.5)" }}
                 >
                   {/* Title row */}
-                  <div className="flex items-center gap-[10px] mb-[5px]">
+                  <div className="flex items-center gap-[10px]">
                     <Icon
                       size={24}
                       strokeWidth={1.75}
@@ -146,7 +146,7 @@ export function ServicesGrid() {
                   {/* CTA */}
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-[8px] mt-[10px] font-semibold transition-colors duration-150 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm w-fit"
+                    className="inline-flex items-center gap-[8px] font-semibold transition-colors duration-150 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm w-fit"
                     style={{
                       fontSize: "var(--text-body-3)",
                       color: "var(--color-primary)",
