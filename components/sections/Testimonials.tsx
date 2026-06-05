@@ -39,7 +39,7 @@ export function Testimonials() {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="flex flex-col gap-[23px] rounded-[10px] px-[23px] py-[20px]"
+              className="flex flex-col gap-[23px] rounded-[10px] px-[23px] py-[37px]"
               style={{ backgroundColor: "rgba(238,249,215,0.85)" }}
             >
               {/* Stars */}
