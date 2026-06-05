@@ -104,7 +104,7 @@ export function ProjectsGallery() {
 
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-[65px]">
-          <div className="flex flex-col gap-4" style={{ maxWidth: "640px" }}>
+          <div className="flex flex-col gap-4 min-w-0">
             <h2
               id="projects-heading"
               style={{
@@ -120,6 +120,7 @@ export function ProjectsGallery() {
             <p
               className="font-normal"
               style={{
+                maxWidth: "640px",
                 fontSize: "var(--text-body-2)",
                 lineHeight: "1.75rem",
                 color: "var(--color-text-secondary)",
