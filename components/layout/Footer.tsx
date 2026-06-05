@@ -22,11 +22,11 @@ export function Footer() {
       >
         {/* Logo + tagline */}
         <div className="flex flex-col gap-6 lg:max-w-[580px]">
-          <Link href="/" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm w-fit">
+          <Link href="/" className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm w-fit">
             <Image
               src="/images/logo.png"
-              alt="ThermaNest"
-              width={180}
+              alt="ThermaNest — Modular Prefab Solutions"
+              width={146}
               height={72}
               className="object-contain h-[72px] brightness-0 invert"
               style={{ width: "auto" }}
