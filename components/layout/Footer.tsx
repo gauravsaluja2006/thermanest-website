@@ -46,7 +46,7 @@ export function Footer() {
         </div>
 
         {/* Links columns */}
-        <div className="flex gap-[43px] flex-wrap">
+        <div className="flex gap-[72px] flex-wrap">
           {/* Quick Links */}
           <div className="flex flex-col gap-4">
             <h3
