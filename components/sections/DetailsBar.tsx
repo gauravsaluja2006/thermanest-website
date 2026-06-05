@@ -59,12 +59,12 @@ export function DetailsBar() {
                   aria-hidden="true"
                 >
                   <Icon
-                    size={24}
+                    size={32}
                     strokeWidth={1.75}
                     style={{ color: "var(--color-primary)" }}
                   />
                 </div>
-                <div className="flex flex-col gap-[5px]">
+                <div className="flex flex-col gap-[8px]">
                   <span
                     className="font-medium leading-none"
                     style={{
