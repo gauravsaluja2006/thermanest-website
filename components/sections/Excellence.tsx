@@ -67,7 +67,7 @@ export function Excellence() {
             </div>
 
             {/* 4 pillars — 2×2 grid */}
-            <div className="grid grid-cols-2 gap-x-10 gap-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 md:gap-y-6">
               {pillars.map((pillar) => {
                 const Icon = pillar.icon;
                 return (
