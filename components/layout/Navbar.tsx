@@ -112,13 +112,13 @@ export function Navbar() {
         <div className="flex items-center justify-between py-4 px-4 md:px-[61px]">
 
           {/* Logo */}
-          <Link href="/" className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
+          <Link href="/" className="shrink-0 -my-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
             <Image
               src="/images/logo.png"
               alt="ThermaNest — Modular Prefab Solutions"
-              width={130}
-              height={64}
-              className="object-contain h-14"
+              width={146}
+              height={72}
+              className="object-contain h-[72px]"
               style={{ width: "auto" }}
               priority
             />
