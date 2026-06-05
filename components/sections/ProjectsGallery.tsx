@@ -1,21 +1,35 @@
 'use client';
 
-import { useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, GalleryHorizontal, MapPin, Star } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { projects } from "@/data/projects";
 
-function ProjectCard({ project, index, reduced }: { project: typeof projects[0]; index: number; reduced: boolean | null }) {
+const CAROUSEL_GAP_PX = 40; // matches gap-10
+
+function useVisibleSlideCount() {
+  const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    const md = window.matchMedia("(min-width: 768px)");
+
+    const update = () => {
+      setCount(md.matches ? 2 : 1);
+    };
+
+    update();
+    md.addEventListener("change", update);
+    return () => md.removeEventListener("change", update);
+  }, []);
+
+  return count;
+}
+
+function ProjectCard({ project }: { project: typeof projects[0] }) {
   return (
-    <motion.article
-      initial={reduced ? false : { opacity: 0, y: 30 }}
-      whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.1, ease: "easeOut" }}
-      className="group flex flex-col rounded-[10px] overflow-hidden transition-all duration-250 hover:-translate-y-1 hover:shadow-lg"
-    >
+    <article className="group flex w-full flex-col rounded-[10px] overflow-hidden transition-all duration-250 hover:-translate-y-1 hover:shadow-lg">
       {/* Image */}
       <div className="relative h-[308px] overflow-hidden rounded-t-[10px] shrink-0">
         <Image
@@ -23,7 +37,7 @@ function ProjectCard({ project, index, reduced }: { project: typeof projects[0];
           alt={project.name}
           fill
           className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-          sizes="(max-width: 768px) 100vw, 33vw"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
         <div
           className="absolute bottom-[14px] left-6 flex items-center gap-[6px] rounded-[7px] px-[8px] py-[7px] h-[34px]"
@@ -38,7 +52,7 @@ function ProjectCard({ project, index, reduced }: { project: typeof projects[0];
 
       {/* Content */}
       <div
-        className="flex flex-col flex-1 px-[30px] py-[40px] gap-5 rounded-b-[10px]"
+        className="flex flex-col flex-1 px-5 py-8 lg:px-[30px] lg:py-[40px] gap-5 rounded-b-[10px]"
         style={{ backgroundColor: "var(--color-white)" }}
       >
         <div className="flex flex-col gap-3">
@@ -70,33 +84,82 @@ function ProjectCard({ project, index, reduced }: { project: typeof projects[0];
           </span>
         </div>
 
-        <div className="grid grid-cols-3 gap-2 pt-5 mt-auto" style={{ borderTop: "1px solid var(--color-border)" }}>
-          {[
-            { label: "Size", value: project.size },
-            { label: "Configuration", value: project.configuration },
-            { label: "Timeline", value: project.timeline },
-          ].map(({ label, value }) => (
-            <div key={label} className="flex flex-col gap-1">
-              <span className="font-normal" style={{ fontSize: "var(--text-body-5)", color: "var(--color-text-secondary)" }}>
-                {label}
-              </span>
-              <span className="font-semibold leading-tight" style={{ fontSize: "var(--text-body-5)", color: "var(--color-text-primary)" }}>
-                {value}
-              </span>
-            </div>
-          ))}
+        <div
+          className="mt-auto flex flex-col items-center rounded-[10px] px-3 py-[10px] lg:px-[25px]"
+          style={{ backgroundColor: "var(--color-primary-light-85)" }}
+        >
+          <div className="flex w-full items-center gap-3 lg:gap-[29px]">
+            {[
+              { label: "Size", value: project.size },
+              { label: "Configuration", value: project.configuration },
+              { label: "Timeline", value: project.timeline },
+            ].map(({ label, value }, index) => (
+              <Fragment key={label}>
+                {index > 0 && (
+                  <div
+                    className="shrink-0 w-px h-10"
+                    style={{ backgroundColor: "var(--color-border)" }}
+                    aria-hidden="true"
+                  />
+                )}
+                <div className="flex min-w-0 flex-1 flex-col justify-center gap-2">
+                  <span
+                    className="font-normal leading-none"
+                    style={{ fontSize: "var(--text-body-4)", color: "var(--color-text-secondary)" }}
+                  >
+                    {label}
+                  </span>
+                  <span
+                    className="font-medium leading-tight text-body-3 lg:text-body-2"
+                    style={{ color: "var(--color-text-primary)" }}
+                  >
+                    {value}
+                  </span>
+                </div>
+              </Fragment>
+            ))}
+          </div>
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 }
 
 export function ProjectsGallery() {
   const reduced = useReducedMotion();
+  const visibleCount = useVisibleSlideCount();
   const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [slideWidth, setSlideWidth] = useState(0);
 
-  const prev = () => setActiveIndex((i) => (i - 1 + projects.length) % projects.length);
-  const next = () => setActiveIndex((i) => (i + 1) % projects.length);
+  const maxIndex = Math.max(0, projects.length - visibleCount);
+
+  useEffect(() => {
+    setActiveIndex((index) => Math.min(index, maxIndex));
+  }, [maxIndex]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const measure = () => {
+      const width = container.clientWidth;
+      const gapTotal = CAROUSEL_GAP_PX * (visibleCount - 1);
+      setSlideWidth((width - gapTotal) / visibleCount);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [visibleCount]);
+
+  const offset = activeIndex * (slideWidth + CAROUSEL_GAP_PX);
+  const canPrev = activeIndex > 0;
+  const canNext = activeIndex < maxIndex;
+
+  const prev = () => setActiveIndex((i) => Math.max(0, i - 1));
+  const next = () => setActiveIndex((i) => Math.min(maxIndex, i + 1));
 
   return (
     <section aria-labelledby="projects-heading" className="section-padding bg-white overflow-hidden">
@@ -140,27 +203,37 @@ export function ProjectsGallery() {
           </Link>
         </div>
 
-        {/* ── Mobile carousel (hidden on md+) ── */}
-        <div className="md:hidden">
-          <div className="relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={reduced ? false : { opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={reduced ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              >
-                <ProjectCard project={projects[activeIndex]} index={activeIndex} reduced={reduced} />
-              </motion.div>
-            </AnimatePresence>
+        {/* Carousel — 1 card mobile, 2 cards tablet+ */}
+        <div
+          className="w-full"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Featured projects"
+        >
+          <div ref={containerRef} className="overflow-hidden">
+            <motion.div
+              className="flex gap-10"
+              animate={{ x: -offset }}
+              transition={reduced ? { duration: 0 } : { duration: 0.35, ease: "easeOut" }}
+            >
+              {projects.map((project) => (
+                <div
+                  key={project.slug}
+                  className="shrink-0"
+                  style={{ width: slideWidth > 0 ? slideWidth : "100%" }}
+                >
+                  <ProjectCard project={project} />
+                </div>
+              ))}
+            </motion.div>
           </div>
 
-          {/* Dots + arrows */}
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
+              type="button"
               onClick={prev}
-              className="flex items-center justify-center rounded-full border transition-colors duration-150 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shrink-0"
+              disabled={!canPrev}
+              className="flex items-center justify-center rounded-full border transition-colors duration-150 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shrink-0 disabled:opacity-40 disabled:pointer-events-none"
               style={{ width: 40, height: 40, borderColor: "var(--color-border)" }}
               aria-label="Previous project"
             >
@@ -168,12 +241,13 @@ export function ProjectsGallery() {
             </button>
 
             <div className="flex items-center gap-2" role="tablist" aria-label="Project slides">
-              {projects.map((_, i) => (
+              {Array.from({ length: maxIndex + 1 }, (_, i) => (
                 <button
                   key={i}
+                  type="button"
                   role="tab"
                   aria-selected={i === activeIndex}
-                  aria-label={`Go to project ${i + 1}`}
+                  aria-label={`Show projects ${i + 1} to ${Math.min(i + visibleCount, projects.length)}`}
                   onClick={() => setActiveIndex(i)}
                   className="rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   style={{
@@ -186,21 +260,16 @@ export function ProjectsGallery() {
             </div>
 
             <button
+              type="button"
               onClick={next}
-              className="flex items-center justify-center rounded-full border transition-colors duration-150 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shrink-0"
+              disabled={!canNext}
+              className="flex items-center justify-center rounded-full border transition-colors duration-150 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shrink-0 disabled:opacity-40 disabled:pointer-events-none"
               style={{ width: 40, height: 40, borderColor: "var(--color-border)" }}
               aria-label="Next project"
             >
               <ArrowRight size={18} strokeWidth={2} style={{ color: "var(--color-text-primary)" }} />
             </button>
           </div>
-        </div>
-
-        {/* ── Desktop grid (hidden below md) ── */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} reduced={reduced} />
-          ))}
         </div>
 
       </div>

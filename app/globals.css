@@ -15,6 +15,7 @@
   --color-border:            #e5e7eb;
   --color-surface:           #f8f8f8;
   --color-primary-light:     #eef9d7;                  /* testimonials, comparison table ThermaNest col */
+  --color-primary-light-85:  rgba(238, 249, 215, 0.85); /* project card stats strip */
   --color-hero-overlay:      rgba(2, 21, 40, 0.18);   /* hero bg overlay — matches Figma exactly */
   --color-eyebrow-bg:        rgba(248, 248, 248, 0.06); /* frosted glass badge bg */
 
@@ -46,8 +47,9 @@
   --spacing-section-y-mobile: 4rem;    /* 64px mobile */
 
   /* Layout */
-  --width-content: 75rem;   /* 1200px inner content max-width */
-  --width-max:     90rem;   /* 1440px outer max-width */
+  --width-content:      75rem;   /* 1200px inner content max-width */
+  --width-max:          90rem;   /* 1440px outer max-width */
+  --width-project-card: 45rem;   /* 720px — projects carousel card */
 
   /* Border radius */
   --radius-sm:  0.375rem;  /* 6px */
