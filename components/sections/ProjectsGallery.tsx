@@ -70,16 +70,40 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
           </h3>
         </div>
 
-        <div className="flex items-center gap-2">
-          <MapPin size={16} strokeWidth={2} aria-hidden="true" style={{ color: "var(--color-text-secondary)", flexShrink: 0 }} />
-          <span className="font-normal" style={{ fontSize: "var(--text-body-3)", color: "var(--color-text-secondary)" }}>
+        <div className="flex gap-2">
+          <span
+            className="inline-flex shrink-0 items-center"
+            style={{ height: "var(--leading-body-3)" }}
+          >
+            <MapPin size={16} strokeWidth={2} aria-hidden="true" style={{ color: "var(--color-text-secondary)" }} />
+          </span>
+          <span
+            className="font-normal"
+            style={{
+              fontSize: "var(--text-body-3)",
+              lineHeight: "var(--leading-body-3)",
+              color: "var(--color-text-secondary)",
+            }}
+          >
             {project.location}
           </span>
         </div>
 
-        <div className="flex items-center gap-2">
-          <Star size={16} strokeWidth={2} aria-hidden="true" style={{ color: "var(--color-text-secondary)", flexShrink: 0 }} />
-          <span className="font-normal" style={{ fontSize: "var(--text-body-3)", color: "var(--color-text-secondary)" }}>
+        <div className="flex gap-2">
+          <span
+            className="inline-flex shrink-0 items-center"
+            style={{ height: "var(--leading-body-3)" }}
+          >
+            <Star size={16} strokeWidth={2} aria-hidden="true" style={{ color: "var(--color-text-secondary)" }} />
+          </span>
+          <span
+            className="font-normal"
+            style={{
+              fontSize: "var(--text-body-3)",
+              lineHeight: "var(--leading-body-3)",
+              color: "var(--color-text-secondary)",
+            }}
+          >
             {project.feature}
           </span>
         </div>
