@@ -16,7 +16,8 @@ const items: InfoItem[] = [
 
 export function InfoBar() {
   return (
-    <div className="bg-secondary flex items-center justify-center flex-wrap gap-x-6 gap-y-2 px-4 py-[10px] md:gap-x-0 md:px-[61px] md:py-3">
+    <div className="bg-secondary overflow-x-auto overscroll-x-contain md:overflow-visible">
+      <div className="flex items-center flex-nowrap gap-x-6 px-4 py-[10px] md:justify-center md:gap-x-0 md:px-[61px] md:py-3">
       {items.map((item, index) => {
         const Icon = item.icon;
         return (
@@ -27,7 +28,7 @@ export function InfoBar() {
                 aria-hidden="true"
               />
             )}
-            <div className="flex items-center gap-[9px]">
+            <div className="flex shrink-0 items-center gap-[9px]">
               <Icon
                 size={16}
                 strokeWidth={1.75}
@@ -35,7 +36,7 @@ export function InfoBar() {
                 aria-hidden="true"
               />
               <span
-                className="text-white font-medium leading-none tracking-[0.01em]"
+                className="whitespace-nowrap text-white font-medium leading-none tracking-[0.01em]"
                 style={{ fontSize: "var(--text-body-5)" }}
               >
                 {item.label}
@@ -47,6 +48,7 @@ export function InfoBar() {
           </Fragment>
         );
       })}
+      </div>
     </div>
   );
 }
