@@ -38,7 +38,7 @@ export function Process() {
           <div className="flex flex-col items-center text-center gap-5" style={{ maxWidth: "971px" }}>
             <h2
               id="process-heading"
-              className="text-white"
+              className="text-white self-stretch text-left md:self-auto md:text-center"
               style={{
                 fontFamily: "var(--font-serif)",
                 fontSize: "clamp(2rem, 5vw, var(--text-h2))",

@@ -10,6 +10,7 @@ export function ComparisonTable() {
         <div className="flex flex-col items-center text-center gap-5 mb-[65px]">
           <h2
             id="comparison-heading"
+            className="self-stretch text-left md:self-auto md:text-center"
             style={{
               fontFamily: "var(--font-serif)",
               fontSize: "clamp(2rem, 5vw, var(--text-h2))",
@@ -36,7 +37,7 @@ export function ComparisonTable() {
 
         {/* Table — horizontal scroll on mobile */}
         <div className="overflow-x-auto rounded-[10px]" style={{ border: "1px solid rgba(229,231,235,0.5)" }}>
-          <table className="w-full min-w-[640px] border-collapse">
+          <table className="w-full min-w-[880px] border-collapse">
             <thead>
               <tr>
                 {/* Feature header */}
@@ -45,7 +46,7 @@ export function ComparisonTable() {
                   style={{
                     backgroundColor: "var(--color-secondary)",
                     fontSize: "var(--text-body-1)",
-                    width: "29%",
+                    width: "24%",
                     borderBottom: "0.8px solid var(--color-border)",
                     borderRight: "0.8px solid var(--color-border)",
                   }}
@@ -59,7 +60,7 @@ export function ComparisonTable() {
                   style={{
                     backgroundColor: "var(--color-secondary)",
                     fontSize: "var(--text-body-1)",
-                    width: "34%",
+                    width: "38%",
                     borderBottom: "0.8px solid rgba(255,255,255,0.2)",
                     borderRight: "0.8px solid rgba(255,255,255,0.2)",
                   }}
@@ -73,7 +74,7 @@ export function ComparisonTable() {
                   style={{
                     backgroundColor: "var(--color-primary)",
                     fontSize: "18px",
-                    width: "37%",
+                    width: "38%",
                     borderBottom: "0.8px solid var(--color-border)",
                   }}
                   scope="col"
@@ -93,9 +94,9 @@ export function ComparisonTable() {
                   >
                     {/* Feature cell */}
                     <td
-                      className="px-6 font-normal"
+                      className="px-6 py-4 font-normal align-middle"
                       style={{
-                        height: "72px",
+                        minHeight: "72px",
                         fontSize: "var(--text-body-3)",
                         color: "var(--color-text-secondary)",
                         borderBottom: borderB,
@@ -107,14 +108,14 @@ export function ComparisonTable() {
                     </td>
                     {/* Traditional cell */}
                     <td
-                      className="px-6"
+                      className="px-6 py-4 align-middle"
                       style={{
-                        height: "72px",
+                        minHeight: "72px",
                         borderBottom: borderB,
                         borderRight: "0.8px solid var(--color-border)",
                       }}
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-start gap-2">
                         <X
                           size={20}
                           strokeWidth={2.5}
@@ -123,7 +124,7 @@ export function ComparisonTable() {
                           aria-hidden="true"
                         />
                         <span
-                          className="font-medium"
+                          className="font-medium leading-snug"
                           style={{
                             fontSize: "var(--text-body-3)",
                             color: "var(--color-text-secondary)",
@@ -135,14 +136,14 @@ export function ComparisonTable() {
                     </td>
                     {/* THERMANEST cell */}
                     <td
-                      className="px-6"
+                      className="px-6 py-4 align-middle"
                       style={{
-                        height: "72px",
+                        minHeight: "72px",
                         borderBottom: borderB,
                         backgroundColor: "rgba(238,249,215,0.85)",
                       }}
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-start gap-2">
                         <Check
                           size={20}
                           strokeWidth={2.5}
@@ -151,7 +152,7 @@ export function ComparisonTable() {
                           aria-hidden="true"
                         />
                         <span
-                          className="font-medium"
+                          className="font-medium leading-snug"
                           style={{
                             fontSize: "var(--text-body-3)",
                             color: "var(--color-primary)",

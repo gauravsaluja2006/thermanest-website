@@ -178,7 +178,8 @@ export function ProjectsGallery() {
                 lineHeight: 1.1,
               }}
             >
-              Spaces We&apos;ve Brought To Life
+              Spaces We&apos;ve Brought{" "}
+              <span className="block md:inline">To Life</span>
             </h2>
             <p
               className="font-normal"
