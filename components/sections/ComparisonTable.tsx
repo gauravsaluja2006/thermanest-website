@@ -21,7 +21,7 @@ export function ComparisonTable() {
             Built Different From Conventional Construction
           </h2>
           <p
-            className="font-normal"
+            className="font-normal self-stretch text-left md:self-auto md:text-center"
             style={{
               fontSize: "var(--text-body-2)",
               lineHeight: "1.75rem",

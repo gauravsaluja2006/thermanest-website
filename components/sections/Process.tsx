@@ -49,7 +49,7 @@ export function Process() {
               A Process Designed Around You
             </h2>
             <p
-              className="text-white/80 font-normal"
+              className="text-white/80 font-normal self-stretch text-left md:self-auto md:text-center"
               style={{ fontSize: "var(--text-body-2)", lineHeight: "1.75rem" }}
             >
               We take care of the entire modular journey so you can focus on your vision
