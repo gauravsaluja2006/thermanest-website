@@ -9,7 +9,7 @@ export function CTABanner() {
     >
       <h2
         id="cta-heading"
-        className="text-white"
+        className="text-white self-stretch text-left md:self-auto md:text-center"
         style={{
           fontFamily: "var(--font-serif)",
           fontSize: "clamp(2rem, 5vw, var(--text-h2))",
@@ -20,7 +20,7 @@ export function CTABanner() {
         Ready To Build Your Dream Space?
       </h2>
       <p
-        className="font-normal text-white"
+        className="font-normal text-white self-stretch text-left md:self-auto md:text-center"
         style={{
           fontSize: "var(--text-body-2)",
           lineHeight: "1.75rem",
