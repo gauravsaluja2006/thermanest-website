@@ -112,7 +112,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
           className="mt-auto flex flex-col items-center rounded-[10px] px-3 py-[10px] lg:px-[25px]"
           style={{ backgroundColor: "var(--color-primary-light-85)" }}
         >
-          <div className="flex w-full items-center gap-3 lg:gap-[29px]">
+          <div className="flex w-full items-start gap-3 lg:gap-[29px]">
             {[
               { label: "Size", value: project.size },
               { label: "Configuration", value: project.configuration },
@@ -126,7 +126,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
                     aria-hidden="true"
                   />
                 )}
-                <div className="flex min-w-0 flex-1 flex-col justify-center gap-2">
+                <div className="flex min-w-0 flex-1 flex-col justify-start gap-2">
                   <span
                     className="font-normal leading-none"
                     style={{ fontSize: "var(--text-body-4)", color: "var(--color-text-secondary)" }}

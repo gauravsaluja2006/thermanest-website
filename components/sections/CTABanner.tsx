@@ -4,7 +4,7 @@ export function CTABanner() {
   return (
     <section
       aria-labelledby="cta-heading"
-      className="flex flex-col items-center text-center gap-5 px-4 pt-[120px] pb-[80px]"
+      className="flex flex-col items-center text-center gap-5 px-4 pt-(--spacing-section-y-mobile) lg:pt-[120px] pb-[80px]"
       style={{ backgroundColor: "var(--color-secondary)" }}
     >
       <h2

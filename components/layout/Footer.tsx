@@ -17,7 +17,7 @@ export function Footer() {
     >
       {/* Main footer content */}
       <div
-        className="w-full flex flex-col lg:flex-row gap-12 items-start justify-between px-4 md:px-[51px] pt-[112px] pb-[104px]"
+        className="w-full flex flex-col lg:flex-row gap-12 items-start justify-between px-4 md:px-[51px] pt-(--spacing-section-y-mobile) lg:pt-[112px] pb-[104px]"
         style={{ maxWidth: "1440px" }}
       >
         {/* Logo + tagline */}
