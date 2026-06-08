@@ -25,7 +25,7 @@ export default function ServicesPage() {
         image="/images/hero/services-hero.png"
         imageAlt="ThermaNest modular construction blueprint"
       />
-      <ServicesGrid />
+      <ServicesGrid showFeatures />
       <ComparisonTable />
       <Process />
       <Testimonials />

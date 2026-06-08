@@ -6,6 +6,7 @@ import {
   ArrowRight,
   Building,
   Building2,
+  Check,
   Home,
   Layers,
   Package2,
@@ -25,7 +26,7 @@ const iconMap: Record<string, LucideIcon> = {
   "relocatable-spaces": Package2,
 };
 
-export function ServicesGrid() {
+export function ServicesGrid({ showFeatures = false }: { showFeatures?: boolean }) {
   const reduced = useReducedMotion();
 
   return (
@@ -134,7 +135,7 @@ export function ServicesGrid() {
 
                   {/* Description */}
                   <p
-                    className="font-normal flex-1"
+                    className={`font-normal ${showFeatures ? "" : "flex-1"}`}
                     style={{
                       fontSize: "var(--text-body-3)",
                       lineHeight: "var(--leading-body-3)",
@@ -143,6 +144,32 @@ export function ServicesGrid() {
                   >
                     {service.description}
                   </p>
+
+                  {/* Feature bullets */}
+                  {showFeatures && (
+                    <ul className="flex flex-col gap-[14px] flex-1">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2">
+                          <Check
+                            size={16}
+                            strokeWidth={2.5}
+                            aria-hidden="true"
+                            className="shrink-0"
+                            style={{ color: "var(--color-primary)" }}
+                          />
+                          <span
+                            className="font-medium"
+                            style={{
+                              fontSize: "var(--text-body-3)",
+                              color: "var(--color-text-secondary)",
+                            }}
+                          >
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
                   {/* CTA */}
                   <Link
