@@ -31,12 +31,24 @@ export function PageHero({ eyebrow, title, body, ctaLabel, ctaHref, image, image
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: "var(--color-secondary)" }}
     >
+      {/* Mobile: image as faint full-bg (hidden on md+) */}
+      <div className="absolute inset-0 md:hidden" aria-hidden="true">
+        <Image
+          src={image}
+          alt=""
+          fill
+          className="object-cover object-right"
+          sizes="100vw"
+          style={{ opacity: 0.29 }}
+        />
+      </div>
+
       <div
-        className="mx-auto flex flex-col md:flex-row"
-        style={{ maxWidth: "var(--width-max)", minHeight: "572px" }}
+        className="mx-auto flex flex-col md:flex-row md:min-h-[572px]"
+        style={{ maxWidth: "var(--width-max)" }}
       >
         {/* Text column */}
-        <div className="flex flex-col justify-center gap-[29px] px-4 md:pl-[53px] md:pr-10 py-16 md:py-0 md:w-[55%]">
+        <div className="relative z-10 flex flex-col md:justify-center gap-[29px] px-4 md:pl-[53px] md:pr-10 pt-10 pb-14 md:py-0 w-full md:w-[55%]">
           {/* Eyebrow badge */}
           <motion.div
             className="flex items-center gap-[5.7px] w-fit rounded-[7px] px-[8.5px] h-[34px]"
@@ -98,8 +110,8 @@ export function PageHero({ eyebrow, title, body, ctaLabel, ctaHref, image, image
           </motion.div>
         </div>
 
-        {/* Image column */}
-        <div className="relative w-full md:w-[45%] h-[280px] md:h-auto shrink-0">
+        {/* Image column — desktop only */}
+        <div className="hidden md:block relative md:w-[45%] shrink-0">
           <Image
             src={image}
             alt={imageAlt}
