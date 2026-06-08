@@ -22,8 +22,8 @@ export default function ServicesPage() {
         body="Explore our range of modular construction solutions, each tailored to meet different residential, commercial and hospitality needs."
         ctaLabel="Start A Project"
         ctaHref="/contact"
-        image="/images/hero/hero-bg.png"
-        imageAlt="ThermaNest luxury modular construction"
+        image="/images/hero/services-hero.png"
+        imageAlt="ThermaNest modular construction blueprint"
       />
       <ServicesGrid />
       <ComparisonTable />
