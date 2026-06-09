@@ -63,7 +63,7 @@ export function ServiceBenefits({ sectionTitle, sectionSubtitle, benefits }: Ser
       <div className="mx-auto px-4 md:px-[50px]" style={{ maxWidth: "1340px" }}>
         {/* Section header */}
         <motion.div
-          className="flex flex-col items-start text-left gap-5 mb-[65px]"
+          className="flex flex-col items-center text-center gap-5 mb-[65px]"
           initial={reduced ? false : { opacity: 0, y: 20 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
@@ -71,6 +71,7 @@ export function ServiceBenefits({ sectionTitle, sectionSubtitle, benefits }: Ser
         >
           <h2
             id="benefits-heading"
+            className="self-stretch text-left md:self-auto md:text-center"
             style={{
               fontFamily: "var(--font-serif)",
               fontSize: "clamp(1.75rem, 4vw, var(--text-h2))",
@@ -82,7 +83,7 @@ export function ServiceBenefits({ sectionTitle, sectionSubtitle, benefits }: Ser
             {sectionTitle}
           </h2>
           <p
-            className="font-normal"
+            className="font-normal self-stretch text-left md:self-auto md:text-center"
             style={{
               fontSize: "var(--text-body-2)",
               lineHeight: "1.75rem",
@@ -124,9 +125,8 @@ export function ServiceBenefits({ sectionTitle, sectionSubtitle, benefits }: Ser
                 {/* Title */}
                 <div className="flex items-center min-h-[48px]">
                   <h3
-                    className="font-semibold leading-none"
+                    className="font-semibold leading-none text-body-1 md:text-[1.375rem]"
                     style={{
-                      fontSize: "22px",
                       color: "var(--color-text-primary)",
                     }}
                   >
