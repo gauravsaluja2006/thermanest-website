@@ -41,10 +41,10 @@ export function CTABanner() {
             borderRadius: "var(--radius-md)",
             padding: "0 20px",
           }}
-          aria-label="Call us today at +9215666885"
+          aria-label="Call us at +9215666885"
         >
           <Phone size={18} strokeWidth={2} aria-hidden="true" />
-          <span style={{ fontSize: "var(--text-body-3)" }}>Call Us Today</span>
+          <span style={{ fontSize: "var(--text-body-3)" }}>Call Us</span>
           <span className="opacity-60 mx-1">|</span>
           <span style={{ fontSize: "var(--text-body-2)" }}>+9215666885</span>
         </a>

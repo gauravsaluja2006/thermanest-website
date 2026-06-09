@@ -226,7 +226,7 @@ export function Navbar() {
                   aria-label="Call ThermaNest at +9215666885"
                 >
                   <Phone size={16} strokeWidth={2} aria-hidden="true" />
-                  Call Us Today&nbsp;|&nbsp;+9215666885
+                  Call Us&nbsp;|&nbsp;+9215666885
                 </a>
               </div>
             </motion.div>

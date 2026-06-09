@@ -170,7 +170,7 @@ Four icon + heading + subtext highlights below the hero. Extract exact copy from
 ### 12. CTA Banner
 - Dark background
 - Heading: "Ready To Build Your Dream Space?"
-- CTA: "Call Us Today"
+- CTA: "Call Us"
 
 ### 13. Footer
 - Logo + tagline: "Dubai-engineered luxury modular construction. 20+..."
