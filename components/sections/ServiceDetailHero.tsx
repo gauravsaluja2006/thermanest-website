@@ -92,8 +92,9 @@ export function ServiceDetailHero({
               <motion.h1
                 style={{
                   fontFamily: "var(--font-serif)",
-                  fontSize: "clamp(2rem, 5vw, var(--text-hero))",
-                  lineHeight: 1.2,
+                  fontSize: "clamp(2.625rem, 10vw, var(--text-hero))",
+                  lineHeight: "clamp(3rem, 12vw, var(--leading-hero))",
+                  maxWidth: "760px",
                   color: "var(--color-text-primary)",
                   fontWeight: 400,
                 }}

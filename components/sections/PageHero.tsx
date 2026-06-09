@@ -66,8 +66,9 @@ export function PageHero({ eyebrow, title, body, ctaLabel, ctaHref, image, image
             className="text-white"
             style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "clamp(2.25rem, 5vw, var(--text-h2))",
-              lineHeight: 1.1,
+              fontSize: "clamp(2.625rem, 10vw, var(--text-hero))",
+              lineHeight: "clamp(3rem, 12vw, var(--leading-hero))",
+              maxWidth: "760px",
               fontWeight: 400,
             }}
             {...mp(0.1)}
