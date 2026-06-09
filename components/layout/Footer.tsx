@@ -105,7 +105,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div
-        className="w-full flex flex-col sm:flex-row items-center justify-between px-[51px] py-[14px] gap-2"
+        className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 py-2 md:px-[51px] md:py-[14px] gap-2"
         style={{ borderTop: "0.8px solid rgba(255,255,255,0.1)" }}
       >
         <p

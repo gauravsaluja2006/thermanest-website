@@ -60,11 +60,13 @@ export function ServiceGallery({ sectionTitle, sectionSubtitle, items }: Service
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          {/* Mobile: 2-column grid */}
+          {/* Mobile: 2-1-2 mosaic (matches desktop focal point) */}
           <div className="grid grid-cols-2 gap-3 md:hidden">
-            {items.map((item) => (
-              <GalleryCell key={item.label} item={item} className="h-[180px]" />
-            ))}
+            <GalleryCell item={leftTop} className="h-[180px]" />
+            <GalleryCell item={leftBottom} className="h-[180px]" />
+            <GalleryCell item={center} className="h-[180px] col-span-2" />
+            <GalleryCell item={rightTop} className="h-[180px]" />
+            <GalleryCell item={rightBottom} className="h-[180px]" />
           </div>
 
           {/* Tablet/Desktop: mosaic */}
