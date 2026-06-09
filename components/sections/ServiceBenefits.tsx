@@ -18,7 +18,7 @@ import {
   TrendingUp,
   Truck,
   Users,
-  Volume2,
+  VolumeX,
   Wifi,
   Zap,
   type LucideIcon,
@@ -44,7 +44,7 @@ const iconMap: Record<string, LucideIcon> = {
   TrendingUp,
   Truck,
   Users,
-  Volume2,
+  VolumeX,
   Wifi,
   Zap,
 };

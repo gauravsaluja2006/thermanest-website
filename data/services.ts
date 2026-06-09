@@ -143,7 +143,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       { icon: "Sparkles", title: "Luxury Living Experience", description: "Premium spaces designed with high-end finishes and modern aesthetic interior" },
       { icon: "Sliders", title: "Design Flexibility", description: "Choose layouts, room configurations and finishes that match your lifestyle and preferences" },
       { icon: "LayoutGrid", title: "Smarter Use Of Space", description: "Thoughtfully planned spaces that feel open, comfortable and easy to live in every day" },
-      { icon: "Volume2", title: "Better Acoustic Comfort", description: "Modular construction helps reduce noise transfer, creating peaceful living spaces" },
+      { icon: "VolumeX", title: "Better Acoustic Comfort", description: "Modular construction helps reduce noise transfer, creating peaceful living spaces" },
       { icon: "MapPin", title: "Suitable For Remote Locations", description: "Streamlined construction processes help reduce delays and unnecessary expenses" },
     ],
     includesSectionTitle: "What's Included In Your Modular Home?",
