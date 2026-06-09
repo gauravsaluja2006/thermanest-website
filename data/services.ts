@@ -148,7 +148,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
     includesSectionTitle: "What's Included In Your Modular Home?",
     includesSectionSubtitle: "Everything You Need, Built In! Every THERMANEST modular home is delivered as a complete living solution with integrated systems, premium finishes and customizable options.",
-    includesCtaLabel: "Let's Build Your Dream Home",
+    includesCtaLabel: "Build Your Dream Home",
     includesItems: [
       { title: "Complete Living Spaces", description: "Includes bedrooms, living room, kitchen and bathroom layouts across 1 BHK, 2 BHK, 3 BHK and custom configurations" },
       { title: "Fully Furnished & Move-In Ready Interiors", description: "Premium interior finishes, fixtures and move-in ready living spaces designed for immediate occupancy" },
