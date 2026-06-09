@@ -108,7 +108,7 @@ export function ServiceIncludes({
           {items.map((item, index) => (
             <motion.div
               key={item.title}
-              className="flex flex-col gap-[5px] justify-center px-[30px] py-[29px] rounded-[10px] bg-white"
+              className="flex flex-col gap-[5px] justify-center px-4 md:px-[30px] py-[29px] rounded-[10px] bg-white"
               style={{ minHeight: "140px" }}
               initial={reduced ? false : { opacity: 0, x: 20 }}
               whileInView={reduced ? undefined : { opacity: 1, x: 0 }}
@@ -118,20 +118,23 @@ export function ServiceIncludes({
               {/* Title row with checkmark */}
               <div className="flex items-center gap-3 min-h-[41px]">
                 <div
-                  className="flex items-center justify-center shrink-0"
-                  style={{ width: "22px", height: "22px" }}
+                  className="flex items-center justify-center shrink-0 rounded-full"
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    backgroundColor: "var(--color-primary-light)",
+                  }}
                   aria-hidden="true"
                 >
                   <Check
-                    size={22}
+                    size={18}
                     strokeWidth={2.5}
                     style={{ color: "var(--color-primary)" }}
                   />
                 </div>
                 <h3
-                  className="font-semibold leading-none"
+                  className="font-semibold leading-none text-body-1"
                   style={{
-                    fontSize: "22px",
                     color: "var(--color-text-primary)",
                   }}
                 >
@@ -141,7 +144,7 @@ export function ServiceIncludes({
 
               {/* Description */}
               <p
-                className="font-normal pl-[34px]"
+                className="font-normal pl-[44px]"
                 style={{
                   fontSize: "var(--text-body-3)",
                   lineHeight: "var(--leading-body-3)",
