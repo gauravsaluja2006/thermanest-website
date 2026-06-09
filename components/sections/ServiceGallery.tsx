@@ -124,12 +124,13 @@ function GalleryCell({
       className={`group relative overflow-hidden cursor-pointer ${className}`}
       style={{ borderRadius: "10px", ...style }}
     >
-      {/* Image with zoom on hover */}
+      {/* Image with zoom on hover — scaled slightly to clip any residual letterboxing */}
       <Image
         src={item.image}
         alt={item.label}
         fill
-        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.07]"
+        className="object-cover scale-[1.12] transition-transform duration-500 ease-out group-hover:scale-[1.2]"
+        style={{ objectFit: "cover" }}
         loading="lazy"
         sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 30vw"
       />
