@@ -133,9 +133,10 @@ export function ServiceIncludes({
                   />
                 </div>
                 <h3
-                  className="font-semibold leading-none text-body-1"
+                  className="font-semibold text-body-1"
                   style={{
                     color: "var(--color-text-primary)",
+                    lineHeight: "var(--leading-body-1)",
                   }}
                 >
                   {item.title}
