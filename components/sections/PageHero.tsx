@@ -28,24 +28,73 @@ export function PageHero({ eyebrow, title, body, ctaLabel, ctaHref, image, image
   return (
     <section
       aria-label={title}
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden md:min-h-[572px]"
       style={{ backgroundColor: "var(--color-secondary)" }}
     >
-      {/* Mobile: image as faint full-bg (hidden on md+) */}
-      <div className="absolute inset-0 md:hidden" aria-hidden="true">
+      {/* Full-bleed background image — anchored right on desktop */}
+      <div className="absolute inset-0" aria-hidden="true">
         <Image
           src={image}
           alt=""
           fill
-          className="object-cover object-right"
+          className="object-cover object-[70%_center] md:object-[82%_center]"
           sizes="100vw"
-          style={{ opacity: 0.29 }}
         />
       </div>
 
-      <div className="flex flex-col md:flex-row md:min-h-[572px]">
-        {/* Text column */}
-        <div className="relative z-10 flex flex-col md:justify-center gap-[29px] px-4 md:pl-[50px] md:pr-10 pt-10 pb-14 md:py-0 w-full md:w-[55%]">
+      {/* Horizontal blend — solid navy left, photo emerges on the right */}
+      <div
+        className="absolute inset-0"
+        aria-hidden="true"
+        style={{
+          backgroundImage: `linear-gradient(
+            to right,
+            var(--color-secondary) 0%,
+            var(--color-secondary) 36%,
+            color-mix(in srgb, var(--color-secondary) 96%, transparent) 46%,
+            color-mix(in srgb, var(--color-secondary) 78%, transparent) 56%,
+            color-mix(in srgb, var(--color-secondary) 52%, transparent) 66%,
+            color-mix(in srgb, var(--color-secondary) 28%, transparent) 78%,
+            color-mix(in srgb, var(--color-secondary) 12%, transparent) 90%,
+            transparent 100%
+          )`,
+        }}
+      />
+
+      {/* Uniform tint — ties photo tone to the dark hero palette */}
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: "var(--color-hero-overlay)" }}
+        aria-hidden="true"
+      />
+
+      {/* Mobile — extra vertical scrim for text legibility */}
+      <div
+        className="absolute inset-0 md:hidden"
+        aria-hidden="true"
+        style={{
+          backgroundImage: `linear-gradient(
+            to bottom,
+            color-mix(in srgb, var(--color-secondary) 55%, transparent) 0%,
+            transparent 42%,
+            transparent 58%,
+            color-mix(in srgb, var(--color-secondary) 65%, transparent) 100%
+          )`,
+        }}
+      />
+
+      {/* Soft edge vignette */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden="true"
+        style={{
+          boxShadow:
+            "inset -100px 0 100px -50px color-mix(in srgb, var(--color-secondary) 45%, transparent)",
+        }}
+      />
+
+      <div className="relative z-10 flex min-h-[420px] flex-col md:min-h-[572px] md:justify-center">
+        <div className="flex flex-col gap-[29px] px-4 pb-14 pt-10 md:max-w-[55%] md:pl-[50px] md:pr-10 md:py-[80px]">
           {/* Eyebrow badge */}
           <motion.div
             className="flex items-center gap-[5.7px] w-fit rounded-[7px] px-[8.5px] h-[34px]"
@@ -107,26 +156,9 @@ export function PageHero({ eyebrow, title, body, ctaLabel, ctaHref, image, image
             </Link>
           </motion.div>
         </div>
-
-        {/* Image column — desktop only */}
-        <div className="hidden md:block relative md:w-[45%] shrink-0">
-          <Image
-            src={image}
-            alt={imageAlt}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 45vw"
-          />
-          {/* Subtle left fade to blend with dark bg on desktop */}
-          <div
-            className="absolute inset-y-0 left-0 w-24 hidden md:block"
-            style={{
-              background: "linear-gradient(to right, var(--color-secondary), transparent)",
-            }}
-            aria-hidden="true"
-          />
-        </div>
       </div>
+
+      <span className="sr-only">{imageAlt}</span>
     </section>
   );
 }
