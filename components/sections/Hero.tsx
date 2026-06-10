@@ -22,14 +22,16 @@ export function Hero() {
       style={{ minHeight: "647px" }}
     >
       {/* Background image */}
-      <Image
-        src="/images/hero/hero-bg.png"
-        alt="Luxury modular prefab home at sunset"
-        fill
-        priority
-        className="object-cover object-center"
-        sizes="100vw"
-      />
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <Image
+          src="/images/hero/hero-bg.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center hero-ken-burns"
+          sizes="100vw"
+        />
+      </div>
 
       {/* Dark overlay */}
       <div

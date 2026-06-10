@@ -1,5 +1,8 @@
+'use client';
+
 import { Star } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function Testimonials() {
   return (
@@ -7,7 +10,7 @@ export function Testimonials() {
       <div className="mx-auto px-4 md:px-[50px]" style={{ maxWidth: "1340px" }}>
 
         {/* Section header */}
-        <div className="flex flex-col items-center text-center gap-5 mb-[65px]">
+        <Reveal className="flex flex-col items-center text-center gap-5 mb-[65px]">
           <h2
             id="testimonials-heading"
             className="self-stretch text-left md:self-auto md:text-center"
@@ -33,13 +36,14 @@ export function Testimonials() {
             Real experiences from clients who partnered with THERMANEST for thoughtfully
             executed, high-quality modular construction projects
           </p>
-        </div>
+        </Reveal>
 
         {/* Review cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
-          {testimonials.map((t) => (
-            <div
+          {testimonials.map((t, index) => (
+            <Reveal
               key={t.name}
+              delay={index * 0.1}
               className="flex flex-col gap-[23px] rounded-[10px] px-[23px] py-[37px]"
               style={{ backgroundColor: "rgba(238,249,215,0.85)" }}
             >
@@ -90,7 +94,7 @@ export function Testimonials() {
                   {t.role}
                 </span>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -105,8 +105,10 @@ export function Navbar() {
 
       <header
         className={[
-          "sticky top-0 z-50 bg-white transition-all duration-200 relative",
-          scrolled ? "shadow-md border-b border-border" : "",
+          "sticky top-0 z-50 transition-all duration-200 relative",
+          scrolled
+            ? "bg-white/95 backdrop-blur-sm shadow-md border-b border-border"
+            : "bg-white",
         ].join(" ")}
       >
         <div className="flex items-center justify-between py-4 px-4 md:px-[61px]">

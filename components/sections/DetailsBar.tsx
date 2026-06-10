@@ -1,6 +1,9 @@
+'use client';
+
 import { Clock, Thermometer, Lightbulb, CloudRain } from "lucide-react";
 import { Fragment } from "react";
 import type { LucideIcon } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 interface DetailItem {
   icon: LucideIcon;
@@ -52,7 +55,12 @@ export function DetailsBar() {
                   aria-hidden="true"
                 />
               )}
-              <div className="flex items-center gap-[15px] shrink-0">
+              <Reveal
+                delay={index * 0.08}
+                duration={0.3}
+                y={16}
+                className="flex items-center gap-[15px] shrink-0"
+              >
                 <div
                   className="flex items-center justify-center shrink-0 rounded-full"
                   style={{ width: 43, height: 43 }}
@@ -84,7 +92,7 @@ export function DetailsBar() {
                     {item.subtext}
                   </span>
                 </div>
-              </div>
+              </Reveal>
             </Fragment>
           );
         })}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { faqItems } from "@/data/faq";
 
 export function FAQ() {
@@ -79,25 +80,33 @@ export function FAQ() {
                   />
                 </button>
 
-                {isOpen && (
-                  <div
-                    id={`faq-panel-${index}`}
-                    role="region"
-                    aria-labelledby={`faq-trigger-${index}`}
-                    className="px-7 pb-6"
-                  >
-                    <p
-                      className="font-normal"
-                      style={{
-                        fontSize: "var(--text-body-2)",
-                        lineHeight: "1.75rem",
-                        color: "var(--color-text-secondary)",
-                      }}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      id={`faq-panel-${index}`}
+                      role="region"
+                      aria-labelledby={`faq-trigger-${index}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="overflow-hidden"
                     >
-                      {item.answer}
-                    </p>
-                  </div>
-                )}
+                      <div className="px-7 pb-6">
+                        <p
+                          className="font-normal"
+                          style={{
+                            fontSize: "var(--text-body-2)",
+                            lineHeight: "1.75rem",
+                            color: "var(--color-text-secondary)",
+                          }}
+                        >
+                          {item.answer}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}

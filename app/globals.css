@@ -117,6 +117,20 @@ body {
   }
 }
 
+/* Hero Ken Burns — slow ambient scale */
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+.hero-ken-burns {
+  animation: hero-ken-burns 25s ease-in-out infinite alternate;
+}
+
 /* Reduced motion — all animations respect this */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -125,5 +139,10 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .hero-ken-burns {
+    animation: none !important;
+    transform: none !important;
   }
 }

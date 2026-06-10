@@ -1,5 +1,8 @@
+'use client';
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const steps = [
   {
@@ -35,7 +38,7 @@ export function Process() {
       >
         {/* Header + steps */}
         <div className="flex flex-col items-center gap-[65px] w-full">
-          <div className="flex flex-col items-center text-center gap-5" style={{ maxWidth: "971px" }}>
+          <Reveal className="flex flex-col items-center text-center gap-5" style={{ maxWidth: "971px" }}>
             <h2
               id="process-heading"
               className="text-white self-stretch text-left md:self-auto md:text-center"
@@ -55,14 +58,15 @@ export function Process() {
               We take care of the entire modular journey so you can focus on your vision
               while we handle all the planning
             </p>
-          </div>
+          </Reveal>
 
           {/* Steps grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[29px] w-full">
-            {steps.map((step) => (
-              <div
+            {steps.map((step, index) => (
+              <Reveal
                 key={step.number}
-                className="flex flex-col gap-[5px] rounded-[10px] px-[30px] py-[29px]"
+                delay={index * 0.1}
+                className="flex flex-col gap-[5px] rounded-[10px] px-[30px] py-[29px] transition-colors duration-150 md:hover:bg-white/8"
                 style={{
                   backgroundColor: "rgba(248,248,248,0.06)",
                   minHeight: "272px",
@@ -104,13 +108,13 @@ export function Process() {
                 >
                   {step.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="flex flex-col items-center gap-[30px] text-center" style={{ maxWidth: "887px" }}>
+        <Reveal className="flex flex-col items-center gap-[30px] text-center" style={{ maxWidth: "887px" }}>
           <p
             className="text-white/80 font-normal"
             style={{ fontSize: "var(--text-body-2)", lineHeight: "1.75rem" }}
@@ -132,7 +136,7 @@ export function Process() {
             Start Your Project
             <ArrowRight size={20} aria-hidden="true" strokeWidth={2} />
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

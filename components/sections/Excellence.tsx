@@ -1,6 +1,9 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Lightbulb, Star, Users, Wrench } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const pillars = [
   {
@@ -36,7 +39,7 @@ export function Excellence() {
         <div className="flex flex-col gap-[50px] lg:w-[590px] shrink-0">
           <div className="flex flex-col gap-[50px]">
             {/* Title + body */}
-            <div className="flex flex-col gap-5">
+            <Reveal className="flex flex-col gap-5">
               <h2
                 id="excellence-heading"
                 style={{
@@ -64,14 +67,14 @@ export function Excellence() {
                 satisfaction, we create prefab solutions tailored to residential,
                 commercial, and hospitality needs.
               </p>
-            </div>
+            </Reveal>
 
             {/* 4 pillars — 2×2 grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 md:gap-y-6">
-              {pillars.map((pillar) => {
+              {pillars.map((pillar, index) => {
                 const Icon = pillar.icon;
                 return (
-                  <div key={pillar.title} className="flex items-center gap-3">
+                  <Reveal key={pillar.title} delay={index * 0.1} className="flex items-center gap-3">
                     <div
                       className="flex items-center justify-center rounded-[8.8px] shrink-0"
                       style={{
@@ -103,25 +106,31 @@ export function Excellence() {
                         {pillar.subtitle}
                       </span>
                     </div>
-                  </div>
+                  </Reveal>
                 );
               })}
             </div>
           </div>
 
           {/* CTA */}
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 font-semibold transition-opacity duration-150 hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm w-fit"
-            style={{ fontSize: "var(--text-body-3)", color: "var(--color-primary)" }}
-          >
-            Explore More About Us
-            <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-          </Link>
+          <Reveal delay={0.2}>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 font-semibold transition-opacity duration-150 hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm w-fit"
+              style={{ fontSize: "var(--text-body-3)", color: "var(--color-primary)" }}
+            >
+              Explore More About Us
+              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+            </Link>
+          </Reveal>
         </div>
 
         {/* Right — photo */}
-        <div className="relative rounded-[10px] overflow-hidden w-full lg:w-[656px] shrink-0" style={{ height: "560px" }}>
+        <Reveal
+          delay={0.15}
+          className="relative rounded-[10px] overflow-hidden w-full lg:w-[656px] shrink-0"
+          style={{ height: "560px" }}
+        >
           <Image
             src="/images/excellence.png"
             alt="ThermaNest modular construction in progress"
@@ -129,7 +138,7 @@ export function Excellence() {
             className="object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 656px"
           />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

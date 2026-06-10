@@ -1,5 +1,8 @@
+'use client';
+
 import { Check, X } from "lucide-react";
 import { comparisonRows } from "@/data/comparison";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function ComparisonTable() {
   return (
@@ -7,7 +10,7 @@ export function ComparisonTable() {
       <div className="mx-auto px-4 md:px-[50px]" style={{ maxWidth: "1340px" }}>
 
         {/* Section header */}
-        <div className="flex flex-col items-center text-center gap-5 mb-[65px]">
+        <Reveal className="flex flex-col items-center text-center gap-5 mb-[65px]">
           <h2
             id="comparison-heading"
             className="self-stretch text-left md:self-auto md:text-center"
@@ -33,7 +36,7 @@ export function ComparisonTable() {
             Discover what makes modular construction different from traditional building
             and why it&apos;s the smarter choice for modern living
           </p>
-        </div>
+        </Reveal>
 
         {/* Table — horizontal scroll on mobile */}
         <div className="overflow-x-auto rounded-[10px]" style={{ border: "1px solid rgba(229,231,235,0.5)" }}>
