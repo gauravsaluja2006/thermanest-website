@@ -1,9 +1,16 @@
-import { Fragment } from "react";
 import Image from "next/image";
 import { GalleryHorizontal, MapPin, Star } from "lucide-react";
 import type { Project } from "@/data/projects";
 
+const projectStats = (project: Project) =>
+  [
+    { label: "Size", value: project.size },
+    { label: "Configuration", value: project.configuration },
+    { label: "Timeline", value: project.timeline },
+  ] as const;
+
 export function ProjectCard({ project }: { project: Project }) {
+  const stats = projectStats(project);
   return (
     <article className="group flex w-full flex-col rounded-[10px] overflow-hidden transition-all duration-250 hover:-translate-y-1 hover:shadow-lg">
       {/* Image */}
@@ -84,42 +91,48 @@ export function ProjectCard({ project }: { project: Project }) {
           </span>
         </div>
 
-        <div
-          className="mt-auto flex flex-col items-center rounded-[10px] px-3 py-[10px] lg:px-[25px]"
-          style={{ backgroundColor: "var(--color-primary-light-85)" }}
+        <ul
+          role="list"
+          className="mt-auto grid grid-cols-1 gap-0 overflow-hidden rounded-[10px] p-0 m-0 list-none md:grid-cols-3"
+          style={{
+            backgroundColor: "var(--color-primary-light-85)",
+            border: "1px solid color-mix(in srgb, var(--color-primary) 14%, transparent)",
+          }}
         >
-          <div className="flex w-full items-start gap-3 lg:gap-[29px]">
-            {[
-              { label: "Size", value: project.size },
-              { label: "Configuration", value: project.configuration },
-              { label: "Timeline", value: project.timeline },
-            ].map(({ label, value }, index) => (
-              <Fragment key={label}>
-                {index > 0 && (
-                  <div
-                    className="shrink-0 w-px h-10"
-                    style={{ backgroundColor: "var(--color-border)" }}
-                    aria-hidden="true"
-                  />
-                )}
-                <div className="flex min-w-0 flex-1 flex-col justify-start gap-2">
-                  <span
-                    className="font-normal leading-none"
-                    style={{ fontSize: "var(--text-body-4)", color: "var(--color-text-secondary)" }}
-                  >
-                    {label}
-                  </span>
-                  <span
-                    className="font-medium leading-tight text-body-3 lg:text-body-2"
-                    style={{ color: "var(--color-text-primary)" }}
-                  >
-                    {value}
-                  </span>
-                </div>
-              </Fragment>
-            ))}
-          </div>
-        </div>
+          {stats.map(({ label, value }, index) => (
+            <li
+              key={label}
+              className={`flex min-w-0 flex-col gap-1.5 px-5 py-4 md:items-center md:justify-center md:text-center md:px-4 md:py-5 lg:px-6${
+                index > 0 ? " border-t md:border-t-0 md:border-l" : ""
+              }`}
+              style={{
+                borderColor: "color-mix(in srgb, var(--color-primary) 18%, transparent)",
+              }}
+            >
+              <span
+                className="font-medium"
+                style={{
+                  fontSize: "var(--text-body-4)",
+                  lineHeight: "var(--leading-body-3)",
+                  color: "var(--color-text-muted)",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                {label}
+              </span>
+              <span
+                className="font-medium"
+                style={{
+                  fontSize: "var(--text-body-2)",
+                  lineHeight: "var(--leading-body-3)",
+                  color: "var(--color-text-secondary)",
+                }}
+              >
+                {value}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </article>
   );
