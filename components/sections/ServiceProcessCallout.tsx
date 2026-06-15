@@ -39,7 +39,7 @@ export function ServiceProcessCallout() {
               fontSize: "var(--text-body-2)",
               lineHeight: "1.75rem",
               color: "var(--color-text-secondary)",
-              maxWidth: "760px",
+              maxWidth: "971px",
             }}
           >
             From the first conversation to final handover, every stage is carefully managed to
