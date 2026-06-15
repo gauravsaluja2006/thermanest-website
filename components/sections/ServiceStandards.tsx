@@ -64,8 +64,7 @@ export function ServiceStandards() {
       >
         {/* Header */}
         <motion.div
-          className="flex flex-col items-center text-center gap-5"
-          style={{ maxWidth: "760px" }}
+          className="flex flex-col items-center text-center gap-5 w-full"
           initial={reduced ? false : { opacity: 0, y: 20 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
@@ -73,7 +72,7 @@ export function ServiceStandards() {
         >
           <h2
             id="standards-heading"
-            className="text-white self-stretch text-left md:self-auto md:text-center"
+            className="text-white self-stretch text-left md:self-auto md:text-center lg:whitespace-nowrap"
             style={{
               fontFamily: "var(--font-serif)",
               fontSize: "clamp(2rem, 5vw, var(--text-h2))",
@@ -85,7 +84,7 @@ export function ServiceStandards() {
           </h2>
           <p
             className="text-white/80 font-normal self-stretch text-left md:self-auto md:text-center"
-            style={{ fontSize: "var(--text-body-2)", lineHeight: "1.75rem" }}
+            style={{ fontSize: "var(--text-body-2)", lineHeight: "1.75rem", maxWidth: "760px" }}
           >
             Built on a foundation of innovation, quality and craftsmanship, these are the standards
             that shape every THERMANEST project
@@ -127,7 +126,7 @@ export function ServiceStandards() {
                 {/* Title */}
                 <h3
                   className="text-white font-semibold"
-                  style={{ fontSize: "var(--text-h3)", lineHeight: 1.2 }}
+                  style={{ fontSize: "var(--text-body-1)", lineHeight: 1.2 }}
                 >
                   {standard.title}
                 </h3>
