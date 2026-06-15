@@ -125,7 +125,7 @@ export function ServiceBenefits({ sectionTitle, sectionSubtitle, benefits }: Ser
                 {/* Title */}
                 <div className="flex items-center min-h-[48px]">
                   <h3
-                    className="font-semibold leading-none text-body-1 md:text-[1.375rem]"
+                    className="font-semibold leading-snug text-body-1 md:text-[1.375rem]"
                     style={{
                       color: "var(--color-text-primary)",
                     }}
