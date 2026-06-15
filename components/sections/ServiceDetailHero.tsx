@@ -86,36 +86,35 @@ export function ServiceDetailHero({
 
         {/* Hero content */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-8 pb-16 md:pb-24">
-          {/* Left: text + CTA */}
-          <div className="flex flex-col gap-8 md:gap-[50px] w-full md:w-[42%] shrink-0">
-            <div className="flex flex-col gap-6 md:gap-[30px]">
-              <motion.h1
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "clamp(2.625rem, 10vw, var(--text-hero))",
-                  lineHeight: "clamp(3rem, 12vw, var(--leading-hero))",
-                  maxWidth: "760px",
-                  color: "var(--color-text-primary)",
-                  fontWeight: 400,
-                }}
-                {...fadeUp(0)}
-              >
-                {title}
-              </motion.h1>
-              <motion.p
-                className="font-normal"
-                style={{
-                  fontSize: "var(--text-body-1)",
-                  lineHeight: "var(--leading-body-1)",
-                  color: "var(--color-text-secondary)",
-                }}
-                {...fadeUp(0.1)}
-              >
-                {subtitle}
-              </motion.p>
-            </div>
+          {/* Left: text + CTA — gap matches PageHero */}
+          <div className="flex flex-col gap-[29px] w-full md:max-w-[55%] shrink-0">
+            <motion.h1
+              className="text-text-primary"
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "clamp(2.625rem, 10vw, var(--text-hero))",
+                lineHeight: "clamp(3rem, 12vw, var(--leading-hero))",
+                maxWidth: "760px",
+                fontWeight: 400,
+              }}
+              {...fadeUp(0.1)}
+            >
+              {title}
+            </motion.h1>
+            <motion.p
+              className="font-normal"
+              style={{
+                fontSize: "var(--text-body-1)",
+                lineHeight: "var(--leading-body-1)",
+                color: "var(--color-text-secondary)",
+                maxWidth: "520px",
+              }}
+              {...fadeUp(0.2)}
+            >
+              {subtitle}
+            </motion.p>
 
-            <motion.div {...fadeUp(0.2)}>
+            <motion.div {...fadeUp(0.3)}>
               <Link
                 href={ctaHref}
                 className="inline-flex items-center gap-[10px] font-semibold text-white transition-all duration-150 hover:scale-[1.03] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 w-fit"
@@ -135,7 +134,7 @@ export function ServiceDetailHero({
 
           {/* Right: image with stat badge */}
           <motion.div
-            className="relative w-full md:w-[55%] shrink-0"
+            className="relative w-full md:w-[42%] md:max-w-[480px] shrink-0"
             {...(reduced ? {} : {
               initial: { opacity: 0, x: 30 },
               animate: { opacity: 1, x: 0 },
@@ -145,7 +144,7 @@ export function ServiceDetailHero({
             <div
               className="relative w-full overflow-hidden"
               style={{
-                height: "clamp(280px, 45vw, 537px)",
+                height: "clamp(220px, 32vw, 400px)",
                 borderRadius: "var(--radius-lg)",
               }}
             >
@@ -155,7 +154,7 @@ export function ServiceDetailHero({
                 fill
                 priority
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 55vw"
+                sizes="(max-width: 768px) 100vw, 42vw"
               />
             </div>
 
