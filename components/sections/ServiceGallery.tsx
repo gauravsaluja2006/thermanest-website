@@ -22,7 +22,7 @@ export function ServiceGallery({ sectionTitle, sectionSubtitle, items }: Service
       <div className="mx-auto px-4 md:px-[50px]" style={{ maxWidth: "1340px" }}>
         {/* Section header */}
         <motion.div
-          className="flex flex-col items-start text-left gap-5 mb-[65px]"
+          className="flex flex-col items-start text-left md:items-center md:text-center gap-5 mb-[65px]"
           initial={reduced ? false : { opacity: 0, y: 20 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
