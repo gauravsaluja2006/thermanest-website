@@ -18,7 +18,13 @@ export default function ServicesPage() {
     <main>
       <PageHero
         eyebrow="98% Client Satisfaction Rate"
-        title="Solutions Designed For Every Requirement"
+        title={
+          <>
+            Solutions Designed For{" "}
+            <br className="hidden md:block" />
+            Every Requirement
+          </>
+        }
         body="Explore our range of modular construction solutions, each tailored to meet different residential, commercial and hospitality needs."
         ctaLabel="Start A Project"
         ctaHref="/contact"

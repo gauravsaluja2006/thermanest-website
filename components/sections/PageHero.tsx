@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
@@ -7,7 +8,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 export interface PageHeroProps {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   body: string;
   ctaLabel: string;
   ctaHref: string;
@@ -27,7 +28,6 @@ export function PageHero({ eyebrow, title, body, ctaLabel, ctaHref, image, image
 
   return (
     <section
-      aria-label={title}
       className="relative w-full overflow-hidden md:min-h-[572px]"
       style={{ backgroundColor: "var(--color-secondary)" }}
     >
