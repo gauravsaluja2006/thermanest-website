@@ -30,6 +30,7 @@
   --text-hero:   3.625rem;  /* 58px — DM Serif Text, hero H1 */
   --text-h2:     3.25rem;   /* 52px — DM Serif section headings (Figma H2) */
   --text-h3:     1.5rem;    /* 24px — card headings */
+  --text-h5:     1.375rem;  /* 22px — value card headings (Figma H5) */
   --text-body-1: 1.25rem;   /* 20px — large body */
   --text-body-2: 1.125rem;  /* 18px — medium body / phone number */
   --text-body-3: 1rem;      /* 16px — standard body / nav links */
