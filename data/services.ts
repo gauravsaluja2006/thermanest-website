@@ -150,9 +150,9 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     includesSectionSubtitle: "Everything You Need, Built In! Every THERMANEST modular home is delivered as a complete living solution with integrated systems, premium finishes and customizable options.",
     includesCtaLabel: "Build Your Dream Home",
     includesItems: [
-      { title: "Complete Living Spaces", description: "Includes bedrooms, living room, kitchen and bathroom layouts across 1 BHK, 2 BHK, 3 BHK and custom configurations" },
-      { title: "Fully Furnished & Move-In Ready Interiors", description: "Premium interior finishes, fixtures and move-in ready living spaces designed for immediate occupancy" },
-      { title: "Integrated Utility Systems", description: "Built-in electrical, plumbing and sewage systems planned for smooth day-to-day functionality" },
+      { title: "Complete Living Spaces", description: "Choose from studio, 1-bedroom, 2-bedroom, 3-bedroom and custom layouts with options to add front porch, outdoor seating area and parking space" },
+      { title: "Fully Finished Interiors", description: "Move into thoughtfully designed interiors, premium materials, and carefully selected finishes throughout the home for a refined living experience" },
+      { title: "Integrated Utility Systems", description: "Built-in electrical, lighting, plumbing, sewage and essential utility systems designed for a seamless living experience" },
     ],
     gallerySectionTitle: "Experience The Modular Home",
     gallerySectionSubtitle: "Step inside and discover how each space comes together to create a seamless and enjoyable living experience",
