@@ -157,11 +157,11 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     gallerySectionTitle: "Experience The Modular Home",
     gallerySectionSubtitle: "Step inside and discover how each space comes together to create a seamless and enjoyable living experience",
     gallery: [
-      { image: "/images/services/luxury-homes/bedroom.png", label: "Bedroom" },
-      { image: "/images/services/luxury-homes/outdoor-deck.png", label: "Outdoor Deck" },
-      { image: "/images/services/luxury-homes/living-room.png", label: "Living Room" },
-      { image: "/images/services/luxury-homes/kitchen-dining.png", label: "Kitchen & Dining" },
-      { image: "/images/services/luxury-homes/bathroom.png", label: "Bathroom" },
+      { image: "/images/new/image24.png", label: "Bedroom" },
+      { image: "/images/new/image14.png", label: "Outdoor Deck" },
+      { image: "/images/new/image6.png", label: "Living Room" },
+      { image: "/images/new/image23.png", label: "Kitchen & Dining" },
+      { image: "/images/new/image25.png", label: "Bathroom" },
     ],
   },
 
