@@ -15,9 +15,9 @@ export const services: Service[] = [
     image: "/images/new/image2.png",
     projectCount: "11+ Projects",
     features: [
-      "Fully Furnished & Move-In Ready",
-      "Custom Home Layouts & Finishes",
-      "Premium Interiors With Built In Utilities",
+      "Flexible Living Layouts",
+      "Fully Finished Interiors",
+      "Integrated Utility Systems",
     ],
   },
   {
@@ -27,9 +27,9 @@ export const services: Service[] = [
     image: "/images/new/image30.png",
     projectCount: "155+ Projects",
     features: [
-      "Workspaces & Meeting Rooms",
-      "Pantry & Washrooms Included",
-      "Fully Furnished Office Setup",
+      "Complete Office Spaces",
+      "Integrated Utility Systems",
+      "Smart Office Technology",
     ],
   },
   {
@@ -39,9 +39,9 @@ export const services: Service[] = [
     image: "/images/new/image4.png",
     projectCount: "3+ Projects",
     features: [
-      "Custom Guest Accommodation Units",
-      "Dining & Lounge Spaces",
-      "Furnished Hospitality Interiors",
+      "Flexible Guest Accommodations",
+      "Hospitality-Ready Interiors",
+      "Customizable Resort Facilities",
     ],
   },
   {
@@ -51,9 +51,9 @@ export const services: Service[] = [
     image: "/images/new/image27.png",
     projectCount: "22+ Projects",
     features: [
-      "Fully Furnished & Move-In Ready",
-      "2 BHK, 3 BHK & Custom Layouts",
-      "Premium Interiors With Built In Utilities",
+      "Expansive Living Spaces",
+      "Luxury-Finished Interiors",
+      "Personalized Lifestyle Features",
     ],
   },
   {
@@ -63,9 +63,9 @@ export const services: Service[] = [
     image: "/images/new/image12.png",
     projectCount: "127+ Projects",
     features: [
-      "1 BHK, 2 BHK & Custom Homes",
-      "Outdoor Sit-Outs & Leisure Spaces",
-      "Ready-To-Use Farmhouse Interiors",
+      "Nature-Inspired Living Spaces",
+      "Fully Finished Interiors",
+      "Custom Outdoor Experiences",
     ],
   },
   {
