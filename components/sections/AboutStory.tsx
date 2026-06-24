@@ -63,9 +63,9 @@ export function AboutStory() {
                 <span
                   className="font-medium"
                   style={{
-                    fontSize: "var(--text-body-3)",
+                    fontSize: "var(--text-body-2)",
                     color: "var(--color-text-secondary)",
-                    lineHeight: "1.625rem",
+                    lineHeight: "1.75rem",
                   }}
                 >
                   {point}
