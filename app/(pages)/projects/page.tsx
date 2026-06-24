@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { PROJECTS_PAGE_ENABLED } from "@/data/site";
 import { PageHero } from "@/components/sections/PageHero";
 import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
 import { Process } from "@/components/sections/Process";
@@ -12,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  if (!PROJECTS_PAGE_ENABLED) notFound();
+
   return (
     <main>
       <PageHero

@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone } from "lucide-react";
+import { PROJECTS_PAGE_ENABLED } from "@/data/site";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
-  { label: "Projects", href: "/projects" },
+  ...(PROJECTS_PAGE_ENABLED ? [{ label: "Projects", href: "/projects" }] : []),
   { label: "Services", href: "/services" },
   { label: "Process", href: "/#process" },
 ];

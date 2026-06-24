@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { PROJECTS_PAGE_ENABLED } from "@/data/site";
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
@@ -93,7 +94,7 @@ export function Hero() {
         {/* CTA */}
         <motion.div {...mp(0.3)}>
           <Link
-            href="/projects"
+            href={PROJECTS_PAGE_ENABLED ? "/projects" : "/services"}
             className="inline-flex items-center gap-[10px] font-semibold text-white transition-all duration-150 hover:scale-[1.03] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-secondary"
             style={{
               backgroundColor: "var(--color-primary)",
@@ -103,7 +104,7 @@ export function Hero() {
               fontSize: "var(--text-body-3)",
             }}
           >
-            Explore Projects
+            {PROJECTS_PAGE_ENABLED ? "Explore Projects" : "Explore Services"}
             <ArrowRight size={20} aria-hidden="true" strokeWidth={2} />
           </Link>
         </motion.div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { projects } from "@/data/projects";
+import { PROJECTS_PAGE_ENABLED } from "@/data/site";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 
 const CAROUSEL_GAP_PX = 40;
@@ -64,7 +65,7 @@ export function ProjectsGallery() {
   const next = () => setActiveIndex((i) => Math.min(maxIndex, i + 1));
 
   return (
-    <section aria-labelledby="projects-heading" className="section-padding bg-white overflow-hidden">
+    <section id="projects" aria-labelledby="projects-heading" className="section-padding bg-white overflow-hidden">
       <div className="mx-auto px-4 md:px-[50px]" style={{ maxWidth: "1340px" }}>
 
         {/* Section header */}
@@ -96,14 +97,16 @@ export function ProjectsGallery() {
               thoughtfully designed around unique client needs, lifestyles and project requirements
             </p>
           </div>
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 font-semibold shrink-0 transition-opacity duration-150 hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm md:mt-2"
-            style={{ fontSize: "var(--text-body-3)", color: "var(--color-primary)" }}
-          >
-            View All Projects
-            <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-          </Link>
+          {PROJECTS_PAGE_ENABLED && (
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 font-semibold shrink-0 transition-opacity duration-150 hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm md:mt-2"
+              style={{ fontSize: "var(--text-body-3)", color: "var(--color-primary)" }}
+            >
+              View All Projects
+              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+            </Link>
+          )}
         </div>
 
         {/* Carousel — 1 card mobile, 2 cards tablet+ */}

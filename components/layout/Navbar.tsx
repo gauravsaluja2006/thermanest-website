@@ -6,11 +6,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Phone } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { PROJECTS_PAGE_ENABLED } from "@/data/site";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Projects", href: "/projects" },
+  ...(PROJECTS_PAGE_ENABLED ? [{ label: "Projects", href: "/projects" }] : []),
   { label: "About", href: "/about" },
 ];
 
