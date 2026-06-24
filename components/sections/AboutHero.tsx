@@ -86,7 +86,7 @@ export function AboutHero() {
               fontSize: "clamp(2.25rem, 6vw, var(--text-h2))",
               lineHeight: 1.1,
               fontWeight: 400,
-              maxWidth: "760px",
+              maxWidth: "900px",
             }}
             {...mp(0.1)}
           >
@@ -99,7 +99,7 @@ export function AboutHero() {
             style={{
               fontSize: "var(--text-body-2)",
               lineHeight: "1.75rem",
-              maxWidth: "880px",
+              maxWidth: "1020px",
             }}
             {...mp(0.2)}
           >
