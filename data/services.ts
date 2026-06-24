@@ -75,9 +75,9 @@ export const services: Service[] = [
     image: "/images/new/image45.png",
     projectCount: "45+ Projects",
     features: [
-      "Portable Cabins & Site Offices",
-      "Pantry, Washroom & Storage Options",
-      "Easy To Transport & Quick To Install",
+      "Multi Purpose Spaces",
+      "Fully Furnished Interiors",
+      "Integrated Utility Systems",
     ],
   },
 ];
@@ -339,7 +339,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     gallerySectionTitle: "Experience The Modular Farmhouse",
     gallerySectionSubtitle: "Explore the spaces that come together to create a comfortable and memorable countryside retreat.",
     gallery: [
-      { image: "/images/new/image17.png", label: "MASTER SUITE" },
+      { image: "/images/new/image34.png", label: "MASTER SUITE" },
       { image: "/images/new/image31.png", label: "KITCHEN & DINING" },
       { image: "/images/new/image35.png", label: "BONFIRE AREA" },
       { image: "/images/new/image32.png", label: "FAMILY LOUNGE" },
@@ -354,9 +354,9 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     image: "/images/new/image45.png",
     projectCount: "45+ Projects",
     features: [
-      "Portable Cabins & Site Offices",
-      "Pantry, Washroom & Storage Options",
-      "Easy To Transport & Quick To Install",
+      "Multi Purpose Spaces",
+      "Fully Furnished Interiors",
+      "Integrated Utility Systems",
     ],
     heroTitle: "Relocatable Spaces Designed For Evolving Needs",
     heroSubtitle: "Created for businesses and individuals seeking high-quality spaces tailored to their requirements.",
