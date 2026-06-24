@@ -38,9 +38,10 @@ export function AboutValues() {
         style={{ maxWidth: "1340px" }}
       >
         {/* Title block */}
-        <Reveal className="flex flex-col gap-5 items-center text-center">
+        <Reveal className="flex flex-col gap-5 items-start md:items-center text-left md:text-center self-stretch md:self-auto w-full">
           <h2
             id="about-values-heading"
+            className="self-stretch text-left md:self-auto md:text-center"
             style={{
               fontFamily: "var(--font-serif)",
               fontSize: "clamp(2rem, 5vw, var(--text-h2))",
@@ -52,7 +53,7 @@ export function AboutValues() {
             Building With Purpose
           </h2>
           <p
-            className="font-normal"
+            className="font-normal self-stretch text-left md:self-auto md:text-center"
             style={{
               fontSize: "var(--text-body-2)",
               lineHeight: "1.75rem",
