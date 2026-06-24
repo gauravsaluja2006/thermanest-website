@@ -126,7 +126,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     slug: "luxury-homes",
     title: "Luxury Homes",
     description: "Premium modular homes with hotel-like interiors and world-class finishes",
-    image: "/images/new/image5.png",
+    image: "/images/new/image2.png",
     projectCount: "11+ Projects",
     features: [
       "Fully Furnished & Move-In Ready",
@@ -171,7 +171,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     slug: "offices",
     title: "Offices",
     description: "Modern workspaces designed for growing businesses and professional environments",
-    image: "/images/services/offices.png",
+    image: "/images/new/image30.png",
     projectCount: "155+ Projects",
     features: [
       "Workspaces & Meeting Rooms",
@@ -216,7 +216,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     slug: "resorts",
     title: "Resorts",
     description: "Luxury resort units that deliver exceptional guest experiences and memorable stay",
-    image: "/images/new/image1.png",
+    image: "/images/new/image4.png",
     projectCount: "3+ Projects",
     features: [
       "Custom Guest Accommodation Units",
@@ -261,7 +261,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     slug: "villas",
     title: "Villas",
     description: "Luxury modular villas for spacious living and a sophisticated lifestyle experience",
-    image: "/images/services/villas.png",
+    image: "/images/new/image27.png",
     projectCount: "22+ Projects",
     features: [
       "Fully Furnished & Move-In Ready",
@@ -306,7 +306,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     slug: "farmhouses",
     title: "Farmhouses",
     description: "Nature inspired retreats designed for privacy, comfort and peaceful living",
-    image: "/images/services/farmhouses.png",
+    image: "/images/new/image12.png",
     projectCount: "127+ Projects",
     features: [
       "1 BHK, 2 BHK & Custom Homes",
