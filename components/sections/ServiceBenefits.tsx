@@ -1,53 +1,8 @@
 'use client';
 
-import {
-  Briefcase,
-  Clock,
-  Home,
-  LayoutGrid,
-  Leaf,
-  MapPin,
-  Plus,
-  RefreshCcw,
-  Shield,
-  Sliders,
-  Sparkles,
-  Star,
-  Sun,
-  TrendingDown,
-  TrendingUp,
-  Truck,
-  Users,
-  VolumeX,
-  Wifi,
-  Zap,
-  type LucideIcon,
-} from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ServiceBenefit } from "@/data/services";
-
-const iconMap: Record<string, LucideIcon> = {
-  Briefcase,
-  Clock,
-  Home,
-  LayoutGrid,
-  Leaf,
-  MapPin,
-  Plus,
-  RefreshCcw,
-  Shield,
-  Sliders,
-  Sparkles,
-  Star,
-  Sun,
-  TrendingDown,
-  TrendingUp,
-  Truck,
-  Users,
-  VolumeX,
-  Wifi,
-  Zap,
-};
+import { getServiceIcon } from "@/components/ui/serviceIcons";
 
 interface ServiceBenefitsProps {
   sectionTitle: string;
@@ -98,7 +53,7 @@ export function ServiceBenefits({ sectionTitle, sectionSubtitle, benefits }: Ser
         {/* Benefit cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
           {benefits.map((benefit, index) => {
-            const Icon = iconMap[benefit.icon] ?? Sparkles;
+            const Icon = getServiceIcon(benefit.icon);
             return (
               <motion.div
                 key={index}

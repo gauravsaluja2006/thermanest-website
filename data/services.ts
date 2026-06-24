@@ -110,6 +110,7 @@ export interface ServiceDetail extends Service {
   benefits: ServiceBenefit[];
   includesSectionTitle: string;
   includesSectionSubtitle: string;
+  includesSectionIcon: string;
   includesCtaLabel: string;
   includesItems: ServiceIncludeItem[];
   gallerySectionTitle: string;
@@ -148,6 +149,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
     includesSectionTitle: "What's Included In Your Modular Home?",
     includesSectionSubtitle: "Everything You Need, Built In! Every THERMANEST modular home is delivered as a complete living solution with integrated systems, premium finishes and customizable options.",
+    includesSectionIcon: "Home",
     includesCtaLabel: "Build Your Dream Home",
     includesItems: [
       { title: "Complete Living Spaces", description: "Choose from studio, 1-bedroom, 2-bedroom, 3-bedroom and custom layouts with options to add front porch, outdoor seating area and parking space" },
@@ -192,6 +194,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
     includesSectionTitle: "What's Included in your modular office?",
     includesSectionSubtitle: "Every THERMANEST modular office is thoughtfully designed to combine functionality, comfort and flexibility, creating workspaces that support modern business operations.",
+    includesSectionIcon: "Briefcase",
     includesCtaLabel: "Set Up Your Office Space",
     includesItems: [
       { title: "Complete Office Space", description: "From single-cabin offices to larger workstation-based layouts, spaces can be configured to include reception areas, client lounge, meeting rooms, pantry facilities, washrooms and employee amenities." },
@@ -236,6 +239,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
     includesSectionTitle: "What's Included in your modular resort?",
     includesSectionSubtitle: "Every THERMANEST modular resort is thoughtfully designed to combine guest comfort, operational efficiency and hospitality flexibility, creating exceptional experiences for guests and resort owners alike.",
+    includesSectionIcon: "Star",
     includesCtaLabel: "Plan Your Resort Project",
     includesItems: [
       { title: "Resort Configurations & Facilities", description: "Available as cottages, villas, suites, with optional additions such as restaurants, wellness spaces, reception areas, swimming pool, bonfire area, kids play area and staff accommodation." },
@@ -280,6 +284,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
     includesSectionTitle: "What's Included in your modular villa?",
     includesSectionSubtitle: "Every THERMANEST modular villa is delivered as a complete living environment, thoughtfully planned to suit a variety of lifestyles and requirements.",
+    includesSectionIcon: "Sparkles",
     includesCtaLabel: "Design Your Modular Villa",
     includesItems: [
       { title: "Complete Living Spaces", description: "Includes bedrooms, kitchen, family lounge, dining area, bathrooms, and balconies across 2 BHK, 3 BHK, and larger villas, with optional additions such as outdoor spaces, swimming pool, wellness areas, home office, barbecue area, entertainment room and parking." },
@@ -324,6 +329,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
     includesSectionTitle: "What's Included in your modular farmhouse?",
     includesSectionSubtitle: "Every THERMANEST modular farmhouse is delivered as a complete living environment, thoughtfully planned to suit a variety of lifestyles and requirements.",
+    includesSectionIcon: "Leaf",
     includesCtaLabel: "Build Your Farmhouse Retreat",
     includesItems: [
       { title: "Complete Living Spaces", description: "Choose from 1BHK, 2BHK, 3BHK, and custom layouts, with options to add decks, verandas, swimming pools, bonfire areas and landscaped gardens" },
@@ -368,6 +374,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
     includesSectionTitle: "What's Included In Your Relocatable Space?",
     includesSectionSubtitle: "Everything You Need On-Site! Each THERMANEST relocatable unit is delivered ready to use with all fittings and utilities included.",
+    includesSectionIcon: "Truck",
     includesCtaLabel: "Deploy Your Modular Space",
     includesItems: [
       { title: "Functional Space Configuration", description: "Office cabins, accommodation units, security posts, washroom blocks and storage spaces available" },

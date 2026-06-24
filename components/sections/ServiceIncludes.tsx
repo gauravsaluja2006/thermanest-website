@@ -1,13 +1,15 @@
 'use client';
 
 import Link from "next/link";
-import { ArrowRight, Check, Home } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ServiceIncludeItem } from "@/data/services";
+import { getServiceIcon } from "@/components/ui/serviceIcons";
 
 interface ServiceIncludesProps {
   sectionTitle: string;
   sectionSubtitle: string;
+  sectionIcon: string;
   ctaLabel: string;
   ctaHref?: string;
   items: ServiceIncludeItem[];
@@ -16,11 +18,13 @@ interface ServiceIncludesProps {
 export function ServiceIncludes({
   sectionTitle,
   sectionSubtitle,
+  sectionIcon,
   ctaLabel,
   ctaHref = "/contact",
   items,
 }: ServiceIncludesProps) {
   const reduced = useReducedMotion();
+  const Icon = getServiceIcon(sectionIcon);
 
   const fadeUp = (delay: number) =>
     reduced
@@ -53,7 +57,7 @@ export function ServiceIncludes({
             style={{ width: "59px", height: "59px" }}
             aria-hidden="true"
           >
-            <Home
+            <Icon
               size={59}
               strokeWidth={1.25}
               style={{ color: "var(--color-text-primary)" }}

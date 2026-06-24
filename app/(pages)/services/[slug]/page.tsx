@@ -52,6 +52,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       <ServiceIncludes
         sectionTitle={detail.includesSectionTitle}
         sectionSubtitle={detail.includesSectionSubtitle}
+        sectionIcon={detail.includesSectionIcon}
         ctaLabel={detail.includesCtaLabel}
         items={detail.includesItems}
       />

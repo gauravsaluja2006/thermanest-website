@@ -1,0 +1,50 @@
+import {
+  Briefcase,
+  Clock,
+  Home,
+  LayoutGrid,
+  Leaf,
+  MapPin,
+  Plus,
+  RefreshCcw,
+  Shield,
+  Sliders,
+  Sparkles,
+  Star,
+  Sun,
+  TrendingDown,
+  TrendingUp,
+  Truck,
+  Users,
+  VolumeX,
+  Wifi,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
+
+export const serviceIconMap: Record<string, LucideIcon> = {
+  Briefcase,
+  Clock,
+  Home,
+  LayoutGrid,
+  Leaf,
+  MapPin,
+  Plus,
+  RefreshCcw,
+  Shield,
+  Sliders,
+  Sparkles,
+  Star,
+  Sun,
+  TrendingDown,
+  TrendingUp,
+  Truck,
+  Users,
+  VolumeX,
+  Wifi,
+  Zap,
+};
+
+export function getServiceIcon(name: string): LucideIcon {
+  return serviceIconMap[name] ?? Sparkles;
+}
