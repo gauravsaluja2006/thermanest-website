@@ -106,7 +106,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div
-        className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 py-2 md:px-[51px] md:py-[14px] gap-2"
+        className="w-full px-4 py-2 md:px-[51px] md:py-[14px]"
         style={{ borderTop: "0.8px solid rgba(255,255,255,0.1)" }}
       >
         <p
@@ -115,22 +115,6 @@ export function Footer() {
         >
           © 2026 THERMANEST. PREFAB All rights reserved.
         </p>
-        <div className="flex gap-6">
-          <Link
-            href="/privacy"
-            className="text-white hover:text-white/80 transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
-            style={{ fontSize: "var(--text-body-4)" }}
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            href="/terms"
-            className="text-white hover:text-white/80 transition-colors duration-150 font-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm"
-            style={{ fontSize: "var(--text-body-4)" }}
-          >
-            Terms of Service
-          </Link>
-        </div>
       </div>
     </footer>
   );
