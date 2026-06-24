@@ -72,7 +72,7 @@ export const services: Service[] = [
     slug: "relocatable-spaces",
     title: "Relocatable Spaces",
     description: "Modular structures that offer ready-to-use functionality wherever needed",
-    image: "/images/services/relocatable.png",
+    image: "/images/new/image37.png",
     projectCount: "45+ Projects",
     features: [
       "Portable Cabins & Site Offices",
@@ -351,7 +351,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     slug: "relocatable-spaces",
     title: "Relocatable Spaces",
     description: "Modular structures that offer ready-to-use functionality wherever needed",
-    image: "/images/services/relocatable.png",
+    image: "/images/new/image37.png",
     projectCount: "45+ Projects",
     features: [
       "Portable Cabins & Site Offices",
