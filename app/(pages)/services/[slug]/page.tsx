@@ -6,7 +6,7 @@ import { ServiceBenefits } from "@/components/sections/ServiceBenefits";
 import { ServiceIncludes } from "@/components/sections/ServiceIncludes";
 import { ServiceGallery } from "@/components/sections/ServiceGallery";
 import { ServiceStandards } from "@/components/sections/ServiceStandards";
-import { ServiceProcessCallout } from "@/components/sections/ServiceProcessCallout";
+// import { ServiceProcessCallout } from "@/components/sections/ServiceProcessCallout";
 import { CTABanner } from "@/components/sections/CTABanner";
 
 interface Props {
@@ -61,7 +61,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         items={detail.gallery}
       />
       <ServiceStandards />
-      <ServiceProcessCallout />
+      {/* <ServiceProcessCallout /> */}
       <CTABanner />
     </main>
   );
