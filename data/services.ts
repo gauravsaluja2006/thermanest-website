@@ -298,7 +298,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       { image: "/images/new/image3.png", label: "SWIMMING POOL AREA" },
       { image: "/images/new/image22.png", label: "LIVING ROOM" },
       { image: "/images/new/image17.png", label: "BEDROOM" },
-      { image: "/images/new/image21.png", label: "OUTDOOR SITTING SPACE" },
+      { image: "/images/new/image21.png", label: "OUTDOOR SITTING" },
     ],
   },
 
