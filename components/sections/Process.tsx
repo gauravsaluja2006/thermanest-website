@@ -114,9 +114,12 @@ export function Process() {
         </div>
 
         {/* Bottom CTA */}
-        <Reveal className="flex flex-col items-center gap-[30px] text-center" style={{ maxWidth: "887px" }}>
+        <Reveal
+          className="flex flex-col items-start md:items-center gap-[30px] text-left md:text-center self-stretch md:self-auto w-full"
+          style={{ maxWidth: "887px" }}
+        >
           <p
-            className="text-white/80 font-normal"
+            className="text-white/80 font-normal self-stretch"
             style={{ fontSize: "var(--text-body-2)", lineHeight: "1.75rem" }}
           >
             Now that you know how it works, let&apos;s create a modular space tailored to your
@@ -124,7 +127,7 @@ export function Process() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-[10px] font-semibold text-white transition-all duration-150 hover:scale-[1.03] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-secondary"
+            className="inline-flex items-center gap-[10px] font-semibold text-white transition-all duration-150 hover:scale-[1.03] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-secondary self-start md:self-auto"
             style={{
               backgroundColor: "var(--color-primary)",
               height: "var(--height-btn-lg)",
