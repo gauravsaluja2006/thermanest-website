@@ -29,7 +29,7 @@ export function ServiceBenefits({ sectionTitle, sectionSubtitle, benefits }: Ser
             className="self-stretch text-left md:self-auto md:text-center"
             style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "clamp(1.75rem, 4vw, var(--text-h2))",
+              fontSize: "clamp(2rem, 5vw, var(--text-h2))",
               color: "var(--color-text-primary)",
               fontWeight: 400,
               lineHeight: 1.1,
